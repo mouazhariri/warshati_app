@@ -1,1 +1,0 @@
-# warshati_app
