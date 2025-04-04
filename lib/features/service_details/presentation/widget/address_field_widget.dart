@@ -1,14 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:queen_validators/queen_validators.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
-import '../../../../../src/resourses/color_manager/color_provider.dart';
 
-class UserNameFormField extends StatelessWidget {
-  const UserNameFormField({super.key, this.onSaved, required this.controller});
-  final void Function(String?)? onSaved;
+import '../../../../src/core/utils/validator/address_validator.dart';
+import '../../../../src/resourses/color_manager/color_provider.dart';
+
+class AddressFieldWidget extends StatelessWidget {
   final TextEditingController controller;
+  final void Function(String?)? onSaved;
+
+  const AddressFieldWidget({
+    super.key,
+    required this.controller,
+    this.onSaved,
+  });
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -17,28 +23,29 @@ class UserNameFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.tr("user_name"),
-            style: textTheme.displayMedium!.copyWith(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            )),
+        Text(
+          "address".tr(),
+          style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
         12.verticalSpace,
         TextFormField(
           controller: controller,
           style: TextStyle(color: colorProvider.grey),
+          maxLines: 2,
           decoration: InputDecoration(
-            hintText: context.tr('user_name'),
+            hintText: 'enter_your_full_address'.tr(),
+            prefixIcon: const Icon(Icons.location_on),
             hintStyle: Theme.of(context)
                 .textTheme
                 .labelSmall!
                 .copyWith(fontSize: 14, color: colorProvider.greyStroke),
           ),
           textInputAction: TextInputAction.next,
-          validator: qValidator([
-            IsRequired(context.tr('required')),
-            // IsEmail(context.tr('name_valdation_msg'))
-          ]),
-          keyboardType: TextInputType.name,
+          validator: (value) => ValidationUtils.validateAddress(value),
+          keyboardType: TextInputType.streetAddress,
           onSaved: onSaved,
         ),
       ],

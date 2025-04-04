@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:warshati/features/home/presentation/pages/service_details_page.dart';
+import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
 import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
 
 import '../../../../src/resourses/color_manager/color_provider.dart';
@@ -31,14 +32,14 @@ class HomeServicesSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Home Services',
+              'home_services'.tr(),
               style: textTheme.titleMedium!
                   .copyWith(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             TextButton(
               onPressed: () {},
               child: Text(
-                'View All',
+                'view_all'.tr(),
                 style: textTheme.titleMedium!.copyWith(
                     // fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -61,6 +62,7 @@ class HomeServicesSection extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ServiceDetailsPage(
                         serviceName: services[index]['name'],
+                        serviceImage: services[index]['image'],
                       ),
                     ),
                   );

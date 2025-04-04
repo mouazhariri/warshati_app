@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters
+// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters, constant_identifier_names
 
 import 'dart:ui';
 
@@ -14,19 +14,75 @@ class CodegenLoader extends AssetLoader{
     return Future.value(mapLocales[locale.toString()]);
   }
 
-  static const Map<String,dynamic> ar = {
+  static const Map<String,dynamic> _ar = {
   "this_number_is_already_exist": "هذا الرقم موجود بالفعل.",
   "please_check_your_internet_connection_and_try_again_later": "يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى لاحقًا.",
   "something_went_wrong_please_try_again_later": "حدث خطأ ما. حاول مرة أخرى لاحقًا.",
   "unauthorized_message": "غير مصرح به. يرجى تسجيل الدخول مرة أخرى.",
-  "internal_server_error_message": "خطأ في الخادم الداخلي. حاول مرة أخرى لاحقًا."
+  "internal_server_error_message": "خطأ في الخادم الداخلي. حاول مرة أخرى لاحقًا.",
+  "order_now": "اطلب الآن",
+  "user_name": "اسم المستخدم",
+  "phone_number": "رقم الهاتف",
+  "second_phone_number": "رقم الهاتف الثاني",
+  "second_phone_number_optional": "رقم الهاتف الثاني (اختياري)",
+  "address": "العنوان",
+  "enter_your_full_address": "أدخل عنوانك الكامل",
+  "select_date": "اختر التاريخ",
+  "sunday": "الأحد",
+  "monday": "الإثنين",
+  "tuesday": "الثلاثاء",
+  "nearest_time": "أقرب وقت",
+  "submit_order": "تأكيد الطلب",
+  "required": "هذا الحقل مطلوب",
+  "invalid_phone": "يرجى إدخال رقم هاتف صحيح",
+  "invalid_address": "يرجى إدخال عنوان صحيح",
+  "service_description": "هذا وصف تفصيلي للخدمة. يمكنك تخصيص هذا لإظهار المحتوى الفعلي.",
+  "home_services": "خدمات المنزل",
+  "view_all": "عرض الكل",
+  "our_services": "خدماتنا",
+  "welcome_to_warshati": "مرحباً بك في ورشاتي",
+  "hi_welcome_to_warshati": "مرحباً، أهلاً بك في ورشاتي! 👋",
+  "we_happy_to_see_you": "نحن سعداء برؤيتك. سجل دخولك إلى حسابك",
+  "order_success": "طلبك قيد المعالجة, سيتم امهاتفتك قريبا",
+  "processing_data": "جاري معالجة البيانات",
+  "preferred_day": "اليوم المناسب",
+  "date": "اليوم",
+  "please_select_a_day": "يرجى اختيار يوم"
 };
-static const Map<String,dynamic> en = {
+static const Map<String,dynamic> _en = {
   "this_number_is_already_exist": "This number already exists.",
   "please_check_your_internet_connection_and_try_again_later": "Please check your internet connection and try again later.",
   "something_went_wrong_please_try_again_later": "Something went wrong. Please try again later.",
   "unauthorized_message": "Unauthorized. Please log in again.",
-  "internal_server_error_message": "Internal server error. Please try again later."
+  "internal_server_error_message": "Internal server error. Please try again later.",
+  "order_now": "Order Now",
+  "user_name": "User Name",
+  "phone_number": "Phone Number",
+  "second_phone_number": "Second Phone Number",
+  "second_phone_number_optional": "Second Phone Number (Optional)",
+  "address": "Address",
+  "enter_your_full_address": "Enter your full address",
+  "select_date": "Select Date",
+  "sunday": "Sunday",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "nearest_time": "Nearest Time",
+  "submit_order": "Submit Order",
+  "required": "This field is required",
+  "invalid_phone": "Please enter a valid phone number",
+  "invalid_address": "Please enter a valid address",
+  "service_description": "This is a detailed description of the service. You can customize this to show actual content.",
+  "home_services": "Home Services",
+  "view_all": "View All",
+  "our_services": "Our Services",
+  "welcome_to_warshati": "Welcome to Warshati",
+  "hi_welcome_to_warshati": "Hi, Welcome to warshati! 👋",
+  "we_happy_to_see_you": "We happy to see you. Sign In to your account",
+  "order_success": "Your Order under proccessing",
+  "processing_data": "Processing Data",
+  "preferred_day": "Preferred Day",
+  "date": "Day",
+  "please_select_a_day": "Please select a day"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
+static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

@@ -10,19 +10,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 30),
-          const BannerSlider(),
-          const SizedBox(height: 30),
-          const HomeServicesSection(),
-          const SizedBox(height: 20),
-          const PopularServicesSection(),
-          const SizedBox(height: 80),
-        ],
-      ),
-    );
+    return PopularServicesSection();
   }
 }

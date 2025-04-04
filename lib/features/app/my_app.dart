@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       supportedLocales: const [Locale('ar'), Locale('en')],
       path: 'assets/i18n',
       fallbackLocale: const Locale('ar'),
-      startLocale: const Locale('en'),
+      startLocale: const Locale('ar'),
       saveLocale: true,
       useOnlyLangCode: true,
       assetLoader: const CodegenLoader(),

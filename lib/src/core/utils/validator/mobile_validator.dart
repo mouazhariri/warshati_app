@@ -9,7 +9,7 @@ String? Function(String?) mobileNumberValidation(BuildContext context) {
     MinLength(8, context.tr('mustBeEightDigits')),
     RegExpRule(
       RegExp(r'^([09])\d+'),
-      context.tr('qatariPhoneNumberValidator'),
+      context.tr('phoneNumberValidator'),
     ),
   ]);
 }

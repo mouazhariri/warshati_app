@@ -4,6 +4,7 @@ import 'package:warshati/features/main/presentation/widgets/custom_bottom_naviga
 import 'package:warshati/features/main/presentation/widgets/custom_drawer.dart';
 import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
 import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../src/resourses/color_manager/color_provider.dart';
 
@@ -53,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
     return AppBar(
       centerTitle: true,
       title: Text(
-        'Welcome to Warshati',
+        'welcome_to_warshati'.tr(),
         style: textTheme.titleLarge!
             .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
       ),

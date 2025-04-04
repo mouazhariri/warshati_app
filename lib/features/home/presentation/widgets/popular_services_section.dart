@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/features/home/presentation/pages/service_details_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
+import 'package:warshati/src/application/router/app_routes.dart';
 import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
 import 'package:warshati/src/core/widgets/cached_image_widget.dart';
 
@@ -46,49 +49,57 @@ class PopularServicesSection extends StatelessWidget {
 
     return Column(
       children: [
+        30.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Popular Services',
+              'our_services'.tr(),
               style: textTheme.titleMedium!
                   .copyWith(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             TextButton(
               onPressed: () {},
               child: Text(
-                'View All',
-                style: textTheme.titleMedium!.copyWith(
-                    // fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                    color: colorProvider.primary),
+                'view_all'.tr(),
+                style: textTheme.titleMedium!
+                    .copyWith(fontSize: 12, color: colorProvider.primary),
               ),
             ),
           ],
-        ).symmetricPadding(horizontal: 16),
+        ),
         16.verticalSpace,
-        SizedBox(
-          height: 230,
-          child: ListView.builder(
-            padding: EdgeInsetsDirectional.only(start: 12),
-            scrollDirection: Axis.horizontal,
+        Expanded(
+          child: ListView.separated(
+            shrinkWrap: true,
+            // scrollDirection: Axis.vertical,
             itemCount: popularServices.length,
+            separatorBuilder: (context, index) => 16.verticalSpace,
             itemBuilder: (context, index) {
               final service = popularServices[index];
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ServiceDetailsPage(
-                        serviceName: service['name'],
-                      ),
-                    ),
+                  context.goNamed(
+                    AppRoutes.serviceDetails,
+                    pathParameters: {
+                      'name': service['name'],
+                      'image': service['image'],
+                    },
                   );
+
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ServiceDetailsPage(
+                  //       serviceName: service['name'],
+                  //       serviceImage: service['image'],
+                  //     ),
+                  //   ),
+                  // );
                 },
                 child: Container(
-                  width: 240,
-                  margin: const EdgeInsets.only(right: 16),
+                  width: double.infinity,
+                  // margin: const EdgeInsets.only(right: 16),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: Colors.grey[300]!),
@@ -150,7 +161,8 @@ class PopularServicesSection extends StatelessWidget {
             },
           ),
         ),
+        80.verticalSpace,
       ],
-    );
+    ).symmetricPadding(horizontal: 16);
   }
 }

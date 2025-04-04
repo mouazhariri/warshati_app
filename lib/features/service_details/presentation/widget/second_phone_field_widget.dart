@@ -10,8 +10,9 @@ import '../../../../../src/core/utils/functions/arabic_number_input_formatter.da
 import '../../../../../src/core/utils/validator/mobile_validator.dart';
 import '../../../../../src/resourses/color_manager/color_provider.dart';
 
-class PhoneNumberField extends StatelessWidget {
-  const PhoneNumberField({super.key, this.onSaved, required this.controller});
+class SecondPhoneFieldWidget extends StatelessWidget {
+  const SecondPhoneFieldWidget(
+      {super.key, this.onSaved, required this.controller});
 
   final void Function(String?)? onSaved;
   final TextEditingController controller;
@@ -24,7 +25,7 @@ class PhoneNumberField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.tr("phone_number"),
+        Text(context.tr("second_phone_number"),
             style: textTheme.displayMedium!.copyWith(
               fontSize: 14,
               fontWeight: FontWeight.w500,
@@ -44,7 +45,7 @@ class PhoneNumberField extends StatelessWidget {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
-                    hintText: context.tr('phone_number'),
+                    hintText: context.tr('second_phone_number_optional'),
                     hintStyle: Theme.of(context).textTheme.labelSmall!.copyWith(
                         fontSize: 14, color: colorProvider.greyStroke),
                   ),
@@ -54,7 +55,6 @@ class PhoneNumberField extends StatelessWidget {
                   ],
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.phone,
-                  validator: mobileNumberValidation(context),
                   onSaved: onSaved,
                 ),
               ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:warshati/features/home/presentation/pages/home_page.dart';
 import 'package:warshati/features/main/presentation/main_screen.dart';
+import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
 import 'package:warshati/features/sign_in/presentation/pages/sign_in_screen.dart';
 import 'package:warshati/src/application/router/app_routes.dart';
 import 'package:warshati/src/application/router/custom_navigation_observer.dart';
@@ -77,6 +78,19 @@ class AppRouter {
           parentNavigatorKey: rootKey,
           builder: (BuildContext context, GoRouterState state) {
             return MainScreen();
+          },
+        ),
+        GoRoute(
+          path: '${AppRoutes.serviceDetails}/:serviceName/:serviceImage',
+          parentNavigatorKey: rootKey,
+          builder: (BuildContext context, GoRouterState state) {
+            final serviceName = state.pathParameters['name'] ?? '';
+            final serviceImage = state.pathParameters['image'] ?? '';
+
+            return ServiceDetailsPage(
+              serviceName: serviceName,
+              serviceImage: serviceImage,
+            );
           },
         ),
       ],

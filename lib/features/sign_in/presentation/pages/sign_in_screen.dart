@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -55,7 +56,7 @@ class SignInScreen extends StatelessWidget {
                         children: [
                           50.verticalSpace,
                           Text(
-                            'Hi, Welcome to warshati! 👋',
+                            'hi_welcome_to_warshati'.tr(),
                             textAlign: TextAlign.center,
                             style: textTheme.displayMedium!
                                 .copyWith(
@@ -65,16 +66,18 @@ class SignInScreen extends StatelessWidget {
                                 .copyWith(fontSize: 20),
                           ),
                           20.verticalSpace,
-                          Text('We happy to see you. Sign In to your account',
+                          Text('we_happy_to_see_you'.tr(),
                               textAlign: TextAlign.center,
                               style: textTheme.displayMedium!.copyWith(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
                               )),
                           55.verticalSpace,
-                          UserNameFormField(),
+                          UserNameFormField(
+                            controller: nameController,
+                          ),
                           25.verticalSpace,
-                          PhoneNumberField(),
+                          PhoneNumberField(controller: phoneController),
                           100.verticalSpace,
                           Column(
                             children: [
