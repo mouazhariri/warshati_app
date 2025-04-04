@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 class ValidationUtils {
   static String? validatePhone(String? value) {
     if (value == null || value.isEmpty) {
@@ -11,10 +13,10 @@ class ValidationUtils {
 
   static String? validateAddress(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter your address';
+      return 'address_required'.tr();
     }
     if (value.length < 10) {
-      return 'Address is too short';
+      return 'inputed_address_short'.tr();
     }
     return null;
   }

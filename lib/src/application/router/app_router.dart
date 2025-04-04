@@ -81,7 +81,8 @@ class AppRouter {
           },
         ),
         GoRoute(
-          path: '${AppRoutes.serviceDetails}/:serviceName/:serviceImage',
+          path: '${AppRoutes.serviceDetails}/:name/:image',
+          name: AppRoutes.serviceDetails,
           parentNavigatorKey: rootKey,
           builder: (BuildContext context, GoRouterState state) {
             final serviceName = state.pathParameters['name'] ?? '';

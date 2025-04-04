@@ -36,10 +36,10 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
     super.dispose();
   }
 
-  void _submitForm() {
+  void _submitForm(context) {
     if (_formKey.currentState!.validate()) {
       // Form is valid, proceed with submission
-      context.pop();
+      Navigator.of(context).pop();
       BotToast.showText(
         text: "order_success".tr(),
         textStyle: TextStyle(fontSize: 16, color: Colors.white),
@@ -76,7 +76,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
             },
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please select a day';
+                return 'please_select_a_day'.tr();
               }
               return null;
             },
@@ -85,11 +85,11 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
           AddressFieldWidget(controller: _addressController),
           const SizedBox(height: 50),
           DefaultButton(
-            onTap: _submitForm,
+            onTap: () => _submitForm(context),
             height: 50,
             roundnessLevel: 12,
             content: Text(
-              'Submit Order',
+              'submit_order'.tr(),
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

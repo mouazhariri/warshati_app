@@ -79,7 +79,7 @@ class PopularServicesSection extends StatelessWidget {
               final service = popularServices[index];
               return GestureDetector(
                 onTap: () {
-                  context.goNamed(
+                  context.pushNamed(
                     AppRoutes.serviceDetails,
                     pathParameters: {
                       'name': service['name'],
