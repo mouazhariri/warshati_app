@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:warshati/features/home/presentation/pages/home_page.dart';
-import 'package:warshati/features/main/presentation/main_screen.dart';
+import 'package:warshati/features/main/presentation/page/main_screen.dart';
 import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
 import 'package:warshati/features/sign_in/presentation/pages/sign_in_screen.dart';
 import 'package:warshati/src/application/router/app_routes.dart';

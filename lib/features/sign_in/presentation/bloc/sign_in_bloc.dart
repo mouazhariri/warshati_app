@@ -25,8 +25,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     final LocalStorage localeStorage = sl<LocalStorage>();
     emit(state.copyWith(isLoading: true));
     final result = await signInUseCase(SignInParams(
-      email: event.params.email,
-      password: event.params.password,
+      name: event.params.name,
+      phoneNumber: event.params.phoneNumber,
     ));
     result.fold((failure) {
       emit(state.copyWith(

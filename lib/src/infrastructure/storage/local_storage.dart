@@ -175,6 +175,11 @@ class LocalStorage {
     _defualtUserinfo = info;
     await _userinfoBox.put(0, info);
   }
+  // remove all user info data and delete token when logout
+
+  Future<void> removeUserInfo() async {
+    await _userinfoBox.delete(0);
+  }
 
   // SET secured string
   Future<void> setSecuredString(String key, String value) async {

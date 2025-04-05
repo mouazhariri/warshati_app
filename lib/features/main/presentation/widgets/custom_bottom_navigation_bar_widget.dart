@@ -6,7 +6,7 @@ import '../../../../src/resourses/color_manager/color_provider.dart';
 
 class CustomBottomNavigationBarWidget extends StatelessWidget {
   final int selectedIndex;
-  final ValueChanged<int> onItemTapped;
+  final ValueChanged<int> onItemTapped; // Update the type for clarity
   CustomBottomNavigationBarWidget({
     super.key,
     required this.selectedIndex,
@@ -15,8 +15,8 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
   final List<BottomNavigationBarItem> bottomNavigationBarItems = [
     BottomNavigationBarItem(
         icon: Icon(Icons.home_filled).onlyPadding(top: 10), label: "home".tr()),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.dataset).onlyPadding(top: 10), label: "orders".tr()),
+    // BottomNavigationBarItem(
+    //     icon: Icon(Icons.dataset).onlyPadding(top: 10), label: "orders".tr()),
     BottomNavigationBarItem(
         icon: Icon(Icons.person_2_rounded).onlyPadding(top: 10),
         label: "profile".tr()),
@@ -29,7 +29,7 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
     return BottomNavigationBar(
       items: bottomNavigationBarItems,
       currentIndex: selectedIndex,
-      onTap: onItemTapped,
+      onTap: (int index) => onItemTapped(index), // Corrected this line
       selectedItemColor: colorProvider.primary,
       unselectedItemColor: colorProvider.grey,
       backgroundColor: colorProvider.white,

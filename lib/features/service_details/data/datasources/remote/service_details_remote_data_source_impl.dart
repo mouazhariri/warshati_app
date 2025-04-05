@@ -1,0 +1,18 @@
+import 'package:injectable/injectable.dart';
+import 'package:warshati/src/application/di/injection.dart';
+import 'package:warshati/src/infrastructure/api/response/api_response.dart';
+
+import '../../../../../src/infrastructure/services/order_service_services.dart';
+import '../../../domain/entities/order_Service_params.dart';
+import 'service_details_remote_data_source.dart';
+
+@LazySingleton(as: ServiceDetailsRemoteDataSource)
+class ServiceDetailsRemoteDataSourceImpl
+    implements ServiceDetailsRemoteDataSource {
+  final OrderServiceServices _orderServiceServices = sl<OrderServiceServices>();
+
+  @override
+  Future<ApiResponse<void>> orderService(OrderServiceParams params) async {
+    return await _orderServiceServices.orderService(params.toMap());
+  }
+}

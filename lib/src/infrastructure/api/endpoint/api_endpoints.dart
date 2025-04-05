@@ -1,6 +1,8 @@
 class ApiEndPoints {
   //? --- Home ---
-  static const String home = 'api/home';
+  static const String homeServices = 'api/services/';
   //? --- signIn ---
-  static const String signIn = 'login';
+  static const String signIn = 'api/login';
+  //? --- OrderService ---
+  static const String orderService = 'api/orderService';
 }

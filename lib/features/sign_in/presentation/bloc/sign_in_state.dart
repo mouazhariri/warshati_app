@@ -19,7 +19,7 @@ class SignInState extends Equatable with BaseState {
   }
   static SignInState initial() {
     return SignInState(
-      signInParams: SignInParams(email: "", password: ""),
+      signInParams: SignInParams(name: "", phoneNumber: ""),
       isLoading: false,
       message: "",
       error: false,

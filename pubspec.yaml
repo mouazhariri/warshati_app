@@ -55,6 +55,7 @@ dependencies:
   gif: ^2.3.0
   queen_validators: ^1.0.1
   carousel_slider: ^5.0.0
+  bloc: ^8.1.4
 
 
 
@@ -72,6 +73,8 @@ dev_dependencies:
   hive_generator: ^2.0.1
   retrofit_generator: ^9.1.4
   injectable_generator: ^2.1.6
+  flutter_launcher_icons: ^0.14.3
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -87,7 +90,10 @@ flutter:
     - assets/lottie/
     #.Env file
     - .env
-
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/warshati_logo3.png"  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

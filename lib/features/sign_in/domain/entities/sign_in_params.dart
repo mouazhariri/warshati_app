@@ -4,29 +4,29 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class SignInParams extends Equatable {
-  final String email;
-  final String password;
+  final String name;
+  final String phoneNumber;
 
-  SignInParams({required this.email, required this.password});
+  SignInParams({required this.name, required this.phoneNumber});
 
   @override
-  List<Object> get props => [email, password];
-  SignInParams copyWith({String? email, String? password}) {
+  List<Object> get props => [name, phoneNumber];
+  SignInParams copyWith({String? name, String? phoneNumber}) {
     return SignInParams(
-        email: email ?? this.email, password: password ?? this.password);
+        name: name ?? this.name, phoneNumber: phoneNumber ?? this.phoneNumber);
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'email': email,
-      'password': password,
+      'name': name,
+      'phoneNumber': phoneNumber,
     };
   }
 
   factory SignInParams.fromMap(Map<String, dynamic> map) {
     return SignInParams(
-      email: map['email'] as String,
-      password: map['password'] as String,
+      name: map['name'] as String,
+      phoneNumber: map['phoneNumber'] as String,
     );
   }
 
