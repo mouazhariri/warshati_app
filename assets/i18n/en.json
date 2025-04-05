@@ -30,6 +30,7 @@
     "service_description": "This is a detailed description of the service. You can customize this to show actual content.",
     "home_services": "Home Services",
     "view_all": "View All",
+    "mustBeTenDigits": "must Be Ten Digits",
     "our_services": "Our Services",
     "welcome_to_warshati": "Welcome to Warshati",
     "hi_welcome_to_warshati": "Hi, Welcome to warshati! 👋",

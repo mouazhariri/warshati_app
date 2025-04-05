@@ -101,7 +101,7 @@ class CustomDrawer extends StatelessWidget {
                     fontSize: 16,
                   )),
               onTap: () {
-                Navigator.pop(context);
+                sl<MainBloc>().add(LogOutEvent());
               },
             ),
           ],

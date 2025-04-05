@@ -33,6 +33,7 @@ class SignInScreen extends StatelessWidget {
       child: BlocConsumer<SignInBloc, SignInState>(
         listener: (context, state) {
           if (state.success) {
+            debugPrint("SUCESSSSS!");
             AppMessages.showSuccess(message: state.message);
             context.push(AppRoutes.homeScreen);
           }
@@ -81,31 +82,36 @@ class SignInScreen extends StatelessWidget {
                           100.verticalSpace,
                           Column(
                             children: [
-                              PrimaryButton(
-                                elevation: 0,
-                                onTap: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    _formKey.currentState!.save();
-                                    context.push(AppRoutes.homeScreen);
+                              state.isLoading
+                                  ? CircularProgressIndicator(
+                                      color: colorProvider.primary,
+                                    )
+                                  : PrimaryButton(
+                                      elevation: 0,
+                                      onTap: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          _formKey.currentState!.save();
+                                          // context.push(AppRoutes.homeScreen);
 
-                                    // context
-                                    //     .read<SignInBloc>()
-                                    //     .add(SignInWithEmailEvent(
-                                    //       params: SignInParams(
-                                    //         email: nameController.text,
-                                    //         password: phoneController.text,
-                                    //       ),
-                                    //     ));
-                                  }
-                                },
-                                text: 'LogIn',
-                                bgColor: colorProvider.primary,
-                                borderRadius: 12,
-                                height: 46,
-                                width: 327,
-                                textColor: colorProvider.surface,
-                                fontSize: 16,
-                              ),
+                                          context
+                                              .read<SignInBloc>()
+                                              .add(SignInWithEmailEvent(
+                                                params: SignInParams(
+                                                  name: nameController.text,
+                                                  phoneNumber:
+                                                      phoneController.text,
+                                                ),
+                                              ));
+                                        }
+                                      },
+                                      text: 'LogIn',
+                                      bgColor: colorProvider.primary,
+                                      borderRadius: 12,
+                                      height: 46,
+                                      width: 327,
+                                      textColor: colorProvider.surface,
+                                      fontSize: 16,
+                                    ),
                               // 212.verticalSpace,
                             ],
                           ),

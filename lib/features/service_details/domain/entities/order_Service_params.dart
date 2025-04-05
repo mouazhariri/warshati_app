@@ -13,11 +13,11 @@ class OrderServiceParams extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'serviceId': serviceId,
-      'name': name,
-      'phoneNumber': phoneNumber,
-      'secondPhoneNumber': secondPhoneNumber,
-      'serviceDay': serviceDay,
+      'service_id': serviceId,
+      'username': name,
+      'phone_number': phoneNumber,
+      'secondary_phone_number': secondPhoneNumber,
+      'service_day': serviceDay,
       'address': address,
     };
   }

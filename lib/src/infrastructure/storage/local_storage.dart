@@ -195,4 +195,11 @@ class LocalStorage {
     Dev.logLine("Flutter secured String get with key : $key ");
     return await flutterSecuredStorage.read(key: key) ?? "";
   }
+
+  // GET secured string
+  Future<void> removeSecuredString() async {
+    const flutterSecuredStorage = FlutterSecureStorage();
+    Dev.logLine("Flutter secured String Removed with key ");
+    await flutterSecuredStorage.delete(key: StorageKeys.securedToken);
+  }
 }

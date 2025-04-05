@@ -34,7 +34,7 @@ class _OrderServiceServices implements OrderServiceServices {
     )
         .compose(
           _dio.options,
-          'api/orderService',
+          'api/service-requests/create/',
           queryParameters: queryParameters,
           data: _data,
         )

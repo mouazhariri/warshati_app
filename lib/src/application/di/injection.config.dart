@@ -86,15 +86,15 @@ _i174.GetIt $initGetIt(
   gh.lazySingleton<_i485.ServiceDetailsUseCase>(() =>
       _i485.ServiceDetailsUseCase(
           baseRepositoryNameRepository: gh<_i163.ServiceDetailsRepository>()));
-  gh.lazySingleton<_i15.SignInServices>(() => _i15.SignInServices(
-        gh<_i361.Dio>(),
-        baseUrl: gh<String>(instanceName: 'baseUrl'),
-      ));
   gh.lazySingleton<_i786.HomeServices>(() => _i786.HomeServices(
         gh<_i361.Dio>(),
         baseUrl: gh<String>(instanceName: 'baseUrl'),
       ));
   gh.lazySingleton<_i283.OrderServiceServices>(() => _i283.OrderServiceServices(
+        gh<_i361.Dio>(),
+        baseUrl: gh<String>(instanceName: 'baseUrl'),
+      ));
+  gh.lazySingleton<_i15.SignInServices>(() => _i15.SignInServices(
         gh<_i361.Dio>(),
         baseUrl: gh<String>(instanceName: 'baseUrl'),
       ));

@@ -34,7 +34,7 @@ class _SignInServices implements SignInServices {
     )
         .compose(
           _dio.options,
-          'api/login',
+          'api/register/',
           queryParameters: queryParameters,
           data: _data,
         )

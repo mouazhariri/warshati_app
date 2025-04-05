@@ -33,6 +33,7 @@ abstract class  LocaleKeys {
   static const service_description = 'service_description';
   static const home_services = 'home_services';
   static const view_all = 'view_all';
+  static const mustBeTenDigits = 'mustBeTenDigits';
   static const our_services = 'our_services';
   static const welcome_to_warshati = 'welcome_to_warshati';
   static const hi_welcome_to_warshati = 'hi_welcome_to_warshati';

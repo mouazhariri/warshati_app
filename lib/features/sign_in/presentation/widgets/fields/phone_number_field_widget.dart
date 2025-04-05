@@ -38,13 +38,14 @@ class PhoneNumberField extends StatelessWidget {
               4.horizontalSpace,
               Flexible(
                 child: TextFormField(
+                  controller: controller,
                   style: TextStyle(color: colorProvider.grey),
                   decoration: InputDecoration(
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
-                    hintText: context.tr('phone_number'),
+                    hintText: '09 **** ****',
                     hintStyle: Theme.of(context).textTheme.labelSmall!.copyWith(
                         fontSize: 14, color: colorProvider.greyStroke),
                   ),

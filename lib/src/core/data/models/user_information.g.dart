@@ -20,22 +20,19 @@ class UserInformationAdapter extends TypeAdapter<UserInformation> {
       id: fields[1] as int,
       name: fields[2] as String?,
       phoneNumber: fields[3] as String,
-      image: fields[4] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserInformation obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
       ..write(obj.name)
       ..writeByte(3)
-      ..write(obj.phoneNumber)
-      ..writeByte(4)
-      ..write(obj.image);
+      ..write(obj.phoneNumber);
   }
 
   @override
@@ -56,17 +53,15 @@ class UserInformationAdapter extends TypeAdapter<UserInformation> {
 UserInformation _$UserInformationFromJson(Map<String, dynamic> json) =>
     UserInformation(
       id: (json['id'] as num).toInt(),
-      name: json['name'] as String?,
-      phoneNumber: json['phone'] as String,
-      image: json['image'] as String?,
+      name: json['username'] as String?,
+      phoneNumber: json['phone_number'] as String,
       token: json['token'] as String? ?? '',
     );
 
 Map<String, dynamic> _$UserInformationToJson(UserInformation instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
-      'phone': instance.phoneNumber,
+      'username': instance.name,
+      'phone_number': instance.phoneNumber,
       'token': instance.token,
-      'image': instance.image,
     };

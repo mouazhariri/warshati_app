@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:warshati/features/sign_in/domain/entities/sign_in_params.dart';
 import 'package:warshati/features/sign_in/domain/usecases/sign_in_use_case.dart';
@@ -29,16 +30,20 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       phoneNumber: event.params.phoneNumber,
     ));
     result.fold((failure) {
+      debugPrint("fail");
+
       emit(state.copyWith(
         isLoading: false,
         error: true,
         message: failure.message,
       ));
     }, (userInformation) async {
+      debugPrint("SUCESSSSS2");
+
       emit(state.copyWith(
         isLoading: false,
         success: true,
-        message: "Success",
+        message: "تم تسجيل الدخول بنجاح",
       ));
 
       await localeStorage.setSecuredString(

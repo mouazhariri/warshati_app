@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:warshati/features/home/presentation/pages/home_page.dart';
 import 'package:warshati/features/main/presentation/page/main_screen.dart';
 import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
 import 'package:warshati/features/sign_in/presentation/pages/sign_in_screen.dart';
@@ -55,7 +54,7 @@ class AppRouter {
   static GoRouter _createRouter() {
     return GoRouter(
       navigatorKey: rootKey,
-      initialLocation: AppRoutes.homeScreen,
+      initialLocation: AppRoutes.splashScreen,
       observers: [CustomNavigationObserver()],
       errorBuilder: (context, state) => const FallbackScreen(),
       routes: <RouteBase>[
@@ -81,16 +80,19 @@ class AppRouter {
           },
         ),
         GoRoute(
-          path: '${AppRoutes.serviceDetails}/:name/:image',
+          path: '${AppRoutes.serviceDetails}/:name/:image/:description',
           name: AppRoutes.serviceDetails,
           parentNavigatorKey: rootKey,
           builder: (BuildContext context, GoRouterState state) {
             final serviceName = state.pathParameters['name'] ?? '';
             final serviceImage = state.pathParameters['image'] ?? '';
+            final serviceDescription =
+                state.pathParameters['description'] ?? '';
 
             return ServiceDetailsPage(
               serviceName: serviceName,
               serviceImage: serviceImage,
+              serviceDescription: serviceDescription,
             );
           },
         ),

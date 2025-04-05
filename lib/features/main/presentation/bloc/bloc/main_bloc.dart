@@ -25,8 +25,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   }
 
   FutureOr<void> _logout(LogOutEvent event, Emitter<MainState> emit) async {
-    // final LocalStorage localeStorage = sl<LocalStorage>();
-    // await localeStorage.removeUserInfo();
+    final LocalStorage localeStorage = sl<LocalStorage>();
+    await localeStorage.removeUserInfo();
+    await localeStorage.removeSecuredString();
     emit(state.copyWith(logOut: true));
   }
 }

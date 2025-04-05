@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../../../../src/core/widgets/cached_image_widget.dart';
+import '../../../../src/infrastructure/api/endpoint/base_urls.dart';
 import '../widget/order_form_widget.dart';
 
 class ServiceDetailsPage extends StatelessWidget {
@@ -34,7 +35,7 @@ class ServiceDetailsPage extends StatelessWidget {
                     top: Radius.circular(12),
                   ),
                   child: CachedImageWidget(
-                    image: serviceImage,
+                    image: BaseUrls.baseUrl + serviceImage,
                     height: 160,
                     width: double.infinity,
                   )),
@@ -48,7 +49,7 @@ class ServiceDetailsPage extends StatelessWidget {
               // ),
               // const SizedBox(height: 8),
               Text(
-                serviceDescription.tr(),
+                serviceDescription,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 24),

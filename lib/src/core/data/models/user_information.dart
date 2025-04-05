@@ -20,11 +20,11 @@ class UserInformation extends HiveObject implements EquatableMixin {
   @JsonKey(name: "id")
   final int id;
   @HiveField(2)
-  @JsonKey(name: "name")
+  @JsonKey(name: "username")
   final String? name;
 
   @HiveField(3)
-  @JsonKey(name: "phone")
+  @JsonKey(name: "phone_number")
   final String phoneNumber;
   // @HiveField(9)
   // @JsonKey(name: "fcm_token")
@@ -35,16 +35,16 @@ class UserInformation extends HiveObject implements EquatableMixin {
   @JsonKey(name: "token")
   final String token;
 
-  @HiveField(4)
-  @JsonKey(name: "image")
-  final String? image;
+  // @HiveField(4)
+  // @JsonKey(name: "image")
+  // final String? image;
 
   UserInformation({
     required this.id,
     required this.name,
     required this.phoneNumber,
     // required this.fcmToken,
-    required this.image,
+    // required this.image,
     this.token = '',
   });
 
@@ -56,7 +56,7 @@ class UserInformation extends HiveObject implements EquatableMixin {
     name: '',
     phoneNumber: "",
     // fcmToken: "",
-    image: null,
+    // image: null,
     token: '',
   );
   @override
@@ -66,19 +66,17 @@ class UserInformation extends HiveObject implements EquatableMixin {
     return other.id == id &&
         other.name == name &&
         other.phoneNumber == phoneNumber &&
-        other.token == token &&
-        // other.fcmToken == fcmToken &&
-        other.image == image;
+        other.token == token;
+    // other.fcmToken == fcmToken &&
+    // other.image == image;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^
-        name.hashCode ^
-        phoneNumber.hashCode ^
-        token.hashCode ^
+    return id.hashCode ^ name.hashCode ^ phoneNumber.hashCode ^ token.hashCode
         // fcmToken.hashCode ^
-        image.hashCode;
+        // image.hashCode
+        ;
   }
 
   @override
@@ -89,7 +87,7 @@ class UserInformation extends HiveObject implements EquatableMixin {
         phoneNumber,
         token,
         // fcmToken,
-        image,
+        // image,
       ];
 
   @override
@@ -101,7 +99,7 @@ class UserInformation extends HiveObject implements EquatableMixin {
     String? phoneNumber,
     String? token,
     // String? fcmToken,
-    String? image,
+    // String? image,
   }) {
     return UserInformation(
       id: id ?? this.id,
@@ -109,7 +107,7 @@ class UserInformation extends HiveObject implements EquatableMixin {
       phoneNumber: phoneNumber ?? this.phoneNumber,
       token: token ?? this.token,
       // fcmToken: fcmToken ?? this.fcmToken,
-      image: image ?? this.image,
+      // image: image ?? this.image,
     );
   }
 }

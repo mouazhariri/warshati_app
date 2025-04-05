@@ -34,7 +34,7 @@ class _HomeServices implements HomeServices {
     )
         .compose(
           _dio.options,
-          'api/services',
+          'api/services/',
           queryParameters: queryParameters,
           data: _data,
         )

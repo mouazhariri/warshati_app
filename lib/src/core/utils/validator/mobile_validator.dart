@@ -5,8 +5,8 @@ import 'package:queen_validators/queen_validators.dart';
 String? Function(String?) mobileNumberValidation(BuildContext context) {
   return qValidator([
     IsRequired(context.tr('required')),
-    MaxLength(8, context.tr('mustBeEightDigits')),
-    MinLength(8, context.tr('mustBeEightDigits')),
+    MaxLength(10, context.tr('mustBeTenDigits')),
+    MinLength(10, context.tr('mustBeTenDigits')),
     RegExpRule(
       RegExp(r'^([09])\d+'),
       context.tr('phoneNumberValidator'),
