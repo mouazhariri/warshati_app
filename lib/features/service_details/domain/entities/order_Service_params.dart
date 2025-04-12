@@ -7,7 +7,6 @@ class OrderServiceParams extends Equatable {
   final int serviceId;
   final String name;
   final String phoneNumber;
-  final String secondPhoneNumber;
   final String serviceDay;
   final String address;
 
@@ -16,7 +15,6 @@ class OrderServiceParams extends Equatable {
       'service_id': serviceId,
       'username': name,
       'phone_number': phoneNumber,
-      'secondary_phone_number': secondPhoneNumber,
       'service_day': serviceDay,
       'address': address,
     };
@@ -27,7 +25,6 @@ class OrderServiceParams extends Equatable {
       serviceId: map['serviceId'] as int,
       name: map['name'] as String,
       phoneNumber: map['phoneNumber'] as String,
-      secondPhoneNumber: map['secondPhoneNumber'] as String,
       serviceDay: map['serviceDay'] as String,
       address: map['address'] as String,
     );
@@ -37,7 +34,6 @@ class OrderServiceParams extends Equatable {
     required this.name,
     required this.serviceId,
     required this.phoneNumber,
-    required this.secondPhoneNumber,
     required this.serviceDay,
     required this.address,
   });
@@ -50,7 +46,6 @@ class OrderServiceParams extends Equatable {
       name,
       serviceId,
       phoneNumber,
-      secondPhoneNumber,
       serviceDay,
       address,
     ];
@@ -60,7 +55,6 @@ class OrderServiceParams extends Equatable {
     int? serviceId,
     String? name,
     String? phoneNumber,
-    String? secondPhoneNumber,
     String? serviceDay,
     String? address,
   }) {
@@ -68,7 +62,6 @@ class OrderServiceParams extends Equatable {
       serviceId: serviceId ?? this.serviceId,
       name: name ?? this.name,
       phoneNumber: phoneNumber ?? this.phoneNumber,
-      secondPhoneNumber: secondPhoneNumber ?? this.secondPhoneNumber,
       serviceDay: serviceDay ?? this.serviceDay,
       address: address ?? this.address,
     );

@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:warshati/features/home/presentation/bloc/home_bloc.dart';
-import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
 import 'package:warshati/src/application/router/app_routes.dart';
 import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
 import 'package:warshati/src/core/widgets/cached_image_widget.dart';
@@ -23,131 +22,127 @@ class PopularServicesSection extends StatefulWidget {
 }
 
 class _PopularServicesSectionState extends State<PopularServicesSection> {
-  final HomeBloc bloc = sl<HomeBloc>();
-
-  @override
-  void initState() {
-    bloc.add(GetAllServicesEvent());
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     TextTheme textTheme = theme.textTheme;
     ColorProvider colorProvider = ColorProvider();
 
-    return BlocBuilder<HomeBloc, HomeState>(
-      bloc: bloc,
-      builder: (context, state) {
-        return state.isLoading
-            ? CircularProgressIndicator(
-                color: colorProvider.primary,
-              ).centered()
-            : Column(
-                children: [
-                  30.verticalSpace,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'our_services'.tr(),
-                        style: textTheme.titleMedium!.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'view_all'.tr(),
+    return BlocProvider<HomeBloc>.value(
+      value: BlocProvider.of<HomeBloc>(context),
+      child: BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, state) {
+          return state.isLoading
+              ? CircularProgressIndicator(
+                  color: colorProvider.primary,
+                ).centered()
+              : Column(
+                  children: [
+                    30.verticalSpace,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'our_services'.tr(),
                           style: textTheme.titleMedium!.copyWith(
-                              fontSize: 12, color: colorProvider.primary),
+                              fontWeight: FontWeight.bold, fontSize: 16),
                         ),
-                      ),
-                    ],
-                  ),
-                  16.verticalSpace,
-                  Expanded(
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      // scrollDirection: Axis.vertical,
-                      itemCount: state.servicesList.length,
-                      separatorBuilder: (context, index) => 16.verticalSpace,
-                      itemBuilder: (context, index) {
-                        final service = state.servicesList[index];
-                        return GestureDetector(
-                          onTap: () {
-                            context.pushNamed(
-                              AppRoutes.serviceDetails,
-                              pathParameters: {
-                                'name': service.title,
-                                'image': service.image,
-                                'description': service.description,
-                              },
-                            );
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: Colors.grey[300]!),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ClipRRect(
-                                    borderRadius: const BorderRadius.vertical(
-                                      top: Radius.circular(12),
-                                    ),
-                                    child: CachedImageWidget(
-                                      image: BaseUrls.baseUrl + service.image,
-                                      height: 120,
-                                      width: double.infinity,
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(12),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        service.title,
-                                        style: textTheme.displaySmall!.copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      10.verticalSpace,
-                                      Text(
-                                        'السعر يبدأ من :  ${service.price}',
-                                        style: textTheme.displaySmall!.copyWith(
-                                            color: colorProvider.primary,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12),
-                                      ),
-                                      10.verticalSpace,
-                                      Text(
-                                        service.description,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: textTheme.titleMedium!.copyWith(
-                                            fontSize: 12,
-                                            color: colorProvider.dark),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'view_all'.tr(),
+                            style: textTheme.titleMedium!.copyWith(
+                                fontSize: 12, color: colorProvider.primary),
                           ),
-                        );
-                      },
+                        ),
+                      ],
                     ),
-                  ),
-                  80.verticalSpace,
-                ],
-              );
-      },
+                    16.verticalSpace,
+                    Expanded(
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        // scrollDirection: Axis.vertical,
+                        itemCount: state.servicesList.length,
+                        separatorBuilder: (context, index) => 16.verticalSpace,
+                        itemBuilder: (context, index) {
+                          final service = state.servicesList[index];
+                          return GestureDetector(
+                            onTap: () {
+                              context.pushNamed(
+                                AppRoutes.serviceDetails,
+                                pathParameters: {
+                                  'name': service.title,
+                                  'image': service.image,
+                                  'description': service.description,
+                                },
+                              );
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(color: Colors.grey[300]!),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                      borderRadius: const BorderRadius.vertical(
+                                        top: Radius.circular(12),
+                                      ),
+                                      child: CachedImageWidget(
+                                        image: BaseUrls.baseUrl + service.image,
+                                        height: 120,
+                                        width: double.infinity,
+                                      )),
+                                  Padding(
+                                    padding: const EdgeInsets.all(12),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          service.title,
+                                          style:
+                                              textTheme.displaySmall!.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        10.verticalSpace,
+                                        Text(
+                                          ' ${service.price}',
+                                          style: textTheme.displaySmall!
+                                              .copyWith(
+                                                  color: colorProvider.primary,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 12),
+                                        ),
+                                        10.verticalSpace,
+                                        Text(
+                                          service.description,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: textTheme.titleMedium!
+                                              .copyWith(
+                                                  fontSize: 12,
+                                                  color: colorProvider.dark),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    80.verticalSpace,
+                  ],
+                );
+        },
+      ),
     ).symmetricPadding(horizontal: 16);
   }
 }

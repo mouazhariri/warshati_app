@@ -7,8 +7,9 @@ import 'package:warshati/src/application/router/app_router.dart';
 import 'package:warshati/src/resourses/theme/theme_manager.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  final String initialRoute;
 
+  const MyApp({super.key, required this.initialRoute});
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -43,7 +44,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             builder: BotToastInit(),
             localizationsDelegates: context.localizationDelegates,
             locale: EasyLocalization.of(context)!.locale,
-            routerConfig: AppRouter().goRouter,
+            routerConfig: AppRouter(widget.initialRoute).goRouter,
             theme: AppThemes.currentTheme,
             darkTheme: AppThemes.darkTheme,
             title: 'Flutter Demo',

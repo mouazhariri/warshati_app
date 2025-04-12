@@ -15,7 +15,7 @@ abstract class OrderServiceServices {
       _OrderServiceServices;
 
   // Create your APIs like:
-  @GET(ApiEndPoints.orderService)
+  @POST(ApiEndPoints.orderService)
   Future<ApiResponse<void>> orderService(
     @Part() Map<String, dynamic> body,
   );

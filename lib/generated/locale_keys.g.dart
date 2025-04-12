@@ -25,6 +25,11 @@ abstract class  LocaleKeys {
   static const sunday = 'sunday';
   static const monday = 'monday';
   static const tuesday = 'tuesday';
+  static const wednsday = 'wednsday';
+  static const thursday = 'thursday';
+  static const friday = 'friday';
+  static const saturday = 'saturday';
+  static const change_language = 'change_language';
   static const nearest_time = 'nearest_time';
   static const submit_order = 'submit_order';
   static const required = 'required';
@@ -35,13 +40,16 @@ abstract class  LocaleKeys {
   static const view_all = 'view_all';
   static const mustBeTenDigits = 'mustBeTenDigits';
   static const our_services = 'our_services';
-  static const welcome_to_warshati = 'welcome_to_warshati';
+  static const welcome = 'welcome';
   static const hi_welcome_to_warshati = 'hi_welcome_to_warshati';
   static const we_happy_to_see_you = 'we_happy_to_see_you';
   static const order_success = 'order_success';
   static const processing_data = 'processing_data';
   static const preferred_day = 'preferred_day';
   static const date = 'date';
+  static const logOut = 'logOut';
+  static const name = 'name';
+  static const phoneNumber = 'phoneNumber';
   static const please_select_a_day = 'please_select_a_day';
 
 }

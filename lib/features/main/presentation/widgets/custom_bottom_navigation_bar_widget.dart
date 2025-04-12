@@ -15,8 +15,8 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
   final List<BottomNavigationBarItem> bottomNavigationBarItems = [
     BottomNavigationBarItem(
         icon: Icon(Icons.home_filled).onlyPadding(top: 10), label: "home".tr()),
-    // BottomNavigationBarItem(
-    //     icon: Icon(Icons.dataset).onlyPadding(top: 10), label: "orders".tr()),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.dataset).onlyPadding(top: 10), label: "orders".tr()),
     BottomNavigationBarItem(
         icon: Icon(Icons.person_2_rounded).onlyPadding(top: 10),
         label: "profile".tr()),

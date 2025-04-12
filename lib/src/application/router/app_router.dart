@@ -43,18 +43,18 @@ final GlobalKey<NavigatorState> rootKey = GlobalKey<NavigatorState>();
 //       ]);
 // }
 class AppRouter {
-  static final _router = AppRouter._internal();
+  // static final _router = AppRouter._internal();
 
-  factory AppRouter() => _router;
+  // factory AppRouter() => _router;
 
   final GoRouter goRouter;
 
-  AppRouter._internal() : goRouter = _createRouter();
+  AppRouter(String initialRoute) : goRouter = _createRouter(initialRoute);
 
-  static GoRouter _createRouter() {
+  static GoRouter _createRouter(initialRoute) {
     return GoRouter(
       navigatorKey: rootKey,
-      initialLocation: AppRoutes.splashScreen,
+      initialLocation: initialRoute,
       observers: [CustomNavigationObserver()],
       errorBuilder: (context, state) => const FallbackScreen(),
       routes: <RouteBase>[

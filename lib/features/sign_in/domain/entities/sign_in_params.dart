@@ -18,7 +18,7 @@ class SignInParams extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'username': name,
+      'full_name': name,
       'phone_number': phoneNumber,
     };
   }

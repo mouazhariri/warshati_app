@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'order_service_services.dart';
+part of 'my_orders_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'order_service_services.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _OrderServiceServices implements OrderServiceServices {
-  _OrderServiceServices(
+class _MyOrdersServices implements MyOrdersServices {
+  _MyOrdersServices(
     this._dio, {
     this.baseUrl,
     this.errorLogger,
@@ -22,19 +22,19 @@ class _OrderServiceServices implements OrderServiceServices {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<ApiResponse<void>> orderService(Map<String, dynamic> body) async {
+  Future<ApiResponse<List<MyOrdersEntity>>> getMyOrders() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = FormData.fromMap(body);
-    final _options = _setStreamType<ApiResponse<void>>(Options(
-      method: 'POST',
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ApiResponse<List<MyOrdersEntity>>>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'api/service-request/create/',
+          'api/service-requests',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -44,11 +44,16 @@ class _OrderServiceServices implements OrderServiceServices {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiResponse<void> _value;
+    late ApiResponse<List<MyOrdersEntity>> _value;
     try {
-      _value = ApiResponse<void>.fromJson(
+      _value = ApiResponse<List<MyOrdersEntity>>.fromJson(
         _result.data!,
-        (json) => () {}(),
+        (json) => json is List<dynamic>
+            ? json
+                .map<MyOrdersEntity>(
+                    (i) => MyOrdersEntity.fromJson(i as Map<String, dynamic>))
+                .toList()
+            : List.empty(),
       );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);

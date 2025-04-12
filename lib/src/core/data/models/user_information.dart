@@ -7,12 +7,6 @@ import 'package:warshati/src/infrastructure/storage/hive/hive_type_ids.dart';
 
 part 'user_information.g.dart';
 
-UserInformation userInformationFromJson(String str) =>
-    UserInformation.fromJson(json.decode(str));
-
-String userInformationToJson(UserInformation data) =>
-    json.encode(data.toJson());
-
 @HiveType(typeId: HiveTypeIds.userInfoTypId)
 @JsonSerializable()
 class UserInformation extends HiveObject implements EquatableMixin {
@@ -20,7 +14,7 @@ class UserInformation extends HiveObject implements EquatableMixin {
   @JsonKey(name: "id")
   final int id;
   @HiveField(2)
-  @JsonKey(name: "username")
+  @JsonKey(name: "full_name")
   final String? name;
 
   @HiveField(3)

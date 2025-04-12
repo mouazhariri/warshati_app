@@ -24,6 +24,16 @@ import '../../../features/home/domain/repositories/home_repository.dart'
 import '../../../features/home/domain/usecases/home_use_case.dart' as _i723;
 import '../../../features/home/presentation/bloc/home_bloc.dart' as _i84;
 import '../../../features/main/presentation/bloc/bloc/main_bloc.dart' as _i726;
+import '../../../features/my_orders/data/datasources/my_orders_remote_data_source.dart'
+    as _i689;
+import '../../../features/my_orders/data/datasources/my_orders_remote_data_source_impl.dart'
+    as _i240;
+import '../../../features/my_orders/data/repositories/my_orders_repository_impl.dart'
+    as _i294;
+import '../../../features/my_orders/domain/repositories/my_orders_repository.dart'
+    as _i501;
+import '../../../features/my_orders/presentation/bloc/my_orders_bloc.dart'
+    as _i417;
 import '../../../features/service_details/data/datasources/remote/service_details_remote_data_source.dart'
     as _i976;
 import '../../../features/service_details/data/datasources/remote/service_details_remote_data_source_impl.dart'
@@ -47,6 +57,8 @@ import '../../../features/sign_in/domain/repositories/sign_in_repository.dart'
 import '../../../features/sign_in/domain/usecases/sign_in_use_case.dart'
     as _i1031;
 import '../../../features/sign_in/presentation/bloc/sign_in_bloc.dart' as _i535;
+import '../../infrastructure/services/get_my_orders_services/my_orders_service.dart'
+    as _i683;
 import '../../infrastructure/services/home_services.dart' as _i786;
 import '../../infrastructure/services/order_service_services.dart' as _i283;
 import '../../infrastructure/services/sign_in_services.dart' as _i15;
@@ -70,6 +82,8 @@ _i174.GetIt $initGetIt(
   gh.lazySingleton<_i409.GlobalKey<_i409.NavigatorState>>(
       () => registerModule.navigatorKey);
   gh.lazySingleton<_i976.LocalStorage>(() => _i976.LocalStorage());
+  gh.lazySingleton<_i689.MyOrdersRemoteDataSource>(
+      () => _i240.MyOrdersRemoteDataSourceImpl());
   gh.lazySingleton<_i976.ServiceDetailsRemoteDataSource>(
       () => _i1014.ServiceDetailsRemoteDataSourceImpl());
   gh.factory<String>(
@@ -98,6 +112,12 @@ _i174.GetIt $initGetIt(
         gh<_i361.Dio>(),
         baseUrl: gh<String>(instanceName: 'baseUrl'),
       ));
+  gh.lazySingleton<_i683.MyOrdersServices>(() => _i683.MyOrdersServices(
+        gh<_i361.Dio>(),
+        baseUrl: gh<String>(instanceName: 'baseUrl'),
+      ));
+  gh.lazySingleton<_i501.MyOrdersRepository>(() => _i294.MyOrdersRepositoryImpl(
+      remoteDataSource: gh<_i689.MyOrdersRemoteDataSource>()));
   gh.lazySingleton<_i299.SignInRemoteDataSource>(() =>
       _i983.SignInRemoteDataSourceImpl(
           signInServices: gh<_i15.SignInServices>()));
@@ -105,8 +125,10 @@ _i174.GetIt $initGetIt(
       baseRepositoryNameRepository: gh<_i834.HomeRepository>()));
   gh.lazySingleton<_i68.SignInRepository>(() => _i142.SignInRepositoryImpl(
       remoteDataSource: gh<_i299.SignInRemoteDataSource>()));
-  gh.factory<_i905.SignInBloc>(
-      () => _i905.SignInBloc(gh<_i485.ServiceDetailsUseCase>()));
+  gh.factory<_i905.ServiceDetailsBloc>(
+      () => _i905.ServiceDetailsBloc(gh<_i485.ServiceDetailsUseCase>()));
+  gh.lazySingleton<_i417.MyOrdersBloc>(
+      () => _i417.MyOrdersBloc(gh<_i501.MyOrdersRepository>()));
   gh.lazySingleton<_i84.HomeBloc>(() => _i84.HomeBloc(gh<_i723.HomeUseCase>()));
   gh.lazySingleton<_i1031.SignInUseCase>(() => _i1031.SignInUseCase(
       baseRepositoryNameRepository: gh<_i68.SignInRepository>()));

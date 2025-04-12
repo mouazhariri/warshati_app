@@ -22,7 +22,6 @@ class ServiceDetailsState extends Equatable with BaseState {
       params: OrderServiceParams(
           name: "",
           phoneNumber: "",
-          secondPhoneNumber: "",
           serviceDay: "",
           serviceId: -1,
           address: ""),

@@ -40,14 +40,6 @@ class ServiceDetailsPage extends StatelessWidget {
                     width: double.infinity,
                   )),
               const SizedBox(height: 16),
-              // Text(
-              //   serviceName,
-              //   style: Theme.of(context)
-              //       .textTheme
-              //       .headlineSmall
-              //       ?.copyWith(fontWeight: FontWeight.bold),
-              // ),
-              // const SizedBox(height: 8),
               Text(
                 serviceDescription,
                 style: Theme.of(context).textTheme.bodyMedium,

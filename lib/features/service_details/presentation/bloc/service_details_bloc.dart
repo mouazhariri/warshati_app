@@ -12,9 +12,10 @@ part 'service_details_event.dart';
 part 'service_details_state.dart';
 
 @Injectable()
-class SignInBloc extends Bloc<ServiceDetailsEvent, ServiceDetailsState> {
+class ServiceDetailsBloc
+    extends Bloc<ServiceDetailsEvent, ServiceDetailsState> {
   final ServiceDetailsUseCase serviceDetailsUseCase;
-  SignInBloc(this.serviceDetailsUseCase)
+  ServiceDetailsBloc(this.serviceDetailsUseCase)
       : super(ServiceDetailsState.initial()) {
     on<OrderServiceEvent>(_orderService);
   }
@@ -25,7 +26,6 @@ class SignInBloc extends Bloc<ServiceDetailsEvent, ServiceDetailsState> {
     final result = await serviceDetailsUseCase(OrderServiceParams(
       name: event.params.name,
       phoneNumber: event.params.phoneNumber,
-      secondPhoneNumber: event.params.secondPhoneNumber,
       serviceId: event.params.serviceId,
       serviceDay: event.params.serviceDay,
       address: event.params.address,

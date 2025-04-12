@@ -53,7 +53,7 @@ class UserInformationAdapter extends TypeAdapter<UserInformation> {
 UserInformation _$UserInformationFromJson(Map<String, dynamic> json) =>
     UserInformation(
       id: (json['id'] as num).toInt(),
-      name: json['username'] as String?,
+      name: json['full_name'] as String?,
       phoneNumber: json['phone_number'] as String,
       token: json['token'] as String? ?? '',
     );
@@ -61,7 +61,7 @@ UserInformation _$UserInformationFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$UserInformationToJson(UserInformation instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'username': instance.name,
+      'full_name': instance.name,
       'phone_number': instance.phoneNumber,
       'token': instance.token,
     };

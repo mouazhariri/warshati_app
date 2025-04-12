@@ -1,15 +1,14 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
+import 'package:warshati/features/service_details/presentation/bloc/service_details_bloc.dart';
 import 'package:warshati/features/service_details/presentation/widget/address_field_widget.dart';
 import 'package:warshati/features/service_details/presentation/widget/day_dropdown_widget.dart';
-import 'package:warshati/features/service_details/presentation/widget/second_phone_field_widget.dart';
 import 'package:warshati/features/sign_in/presentation/widgets/fields/phone_number_field_widget.dart';
 import 'package:warshati/features/sign_in/presentation/widgets/fields/user_name_form_field.dart';
 import 'package:warshati/src/core/widgets/default_button.dart';
 
+import '../../../../src/application/di/injection.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';
 
 class OrderFormWidget extends StatefulWidget {
@@ -36,7 +35,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
     super.dispose();
   }
 
-  void _submitForm(context) {
+  void _submitForm(context, ServiceDetailsBloc bloc) {
     if (_formKey.currentState!.validate()) {
       // Form is valid, proceed with submission
       Navigator.of(context).pop();
@@ -53,6 +52,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final ServiceDetailsBloc bloc = sl<ServiceDetailsBloc>();
     ThemeData theme = Theme.of(context);
     TextTheme textTheme = theme.textTheme;
     ColorProvider colorProvider = ColorProvider();
@@ -64,8 +64,6 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
           UserNameFormField(controller: _usernameController),
           const SizedBox(height: 16),
           PhoneNumberField(controller: _phoneController),
-          const SizedBox(height: 16),
-          SecondPhoneFieldWidget(controller: _secondPhoneController),
           const SizedBox(height: 16),
           DayDropdownWidget(
             selectedDay: _selectedDay,
@@ -85,7 +83,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
           AddressFieldWidget(controller: _addressController),
           const SizedBox(height: 50),
           DefaultButton(
-            onTap: () => _submitForm(context),
+            onTap: () => _submitForm(context, bloc),
             height: 50,
             roundnessLevel: 12,
             content: Text(
@@ -98,24 +96,6 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
             ),
             backgroundColor: colorProvider.primary,
           )
-          // ElevatedButton(
-          //   onPressed: _submitForm,
-          //   style: ElevatedButton.styleFrom(
-          //     backgroundColor: Theme.of(context).primaryColor,
-          //     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
-          //     shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(10),
-          //     ),
-          //   ),
-          //   child: const Text(
-          //     'Submit Order',
-          //     style: TextStyle(
-          //       fontSize: 16,
-          //       fontWeight: FontWeight.bold,
-          //       color: Colors.white,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

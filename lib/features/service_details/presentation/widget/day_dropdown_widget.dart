@@ -7,13 +7,22 @@ class DayDropdownWidget extends StatelessWidget {
   final ValueChanged<String?> onChanged;
   final FormFieldValidator<String>? validator;
 
-  const DayDropdownWidget({
+  DayDropdownWidget({
     super.key,
     required this.selectedDay,
     required this.onChanged,
     this.validator,
   });
-
+  final List<String> days = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednsday",
+    "thursday",
+    "friday",
+    "saturday",
+    "nearesr_day"
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,13 +49,18 @@ class DayDropdownWidget extends StatelessWidget {
             ),
             prefixIcon: const Icon(Icons.calendar_today),
           ),
-          items: [
-            DropdownMenuItem(value: 'sunday', child: Text('sunday'.tr())),
-            DropdownMenuItem(value: 'monday', child: Text('monday'.tr())),
-            DropdownMenuItem(value: 'tuesday', child: Text('tuesday'.tr())),
-            DropdownMenuItem(
-                value: 'nearest_time', child: Text('nearest_time'.tr())),
-          ],
+          items: days
+              .map(
+                (data) => DropdownMenuItem(value: data, child: Text(data.tr())),
+              )
+              .toList(),
+          // [
+          //   DropdownMenuItem(value: 'sunday', child: Text('sunday'.tr())),
+          //   DropdownMenuItem(value: 'monday', child: Text('monday'.tr())),
+          //   DropdownMenuItem(value: 'tuesday', child: Text('tuesday'.tr())),
+          //   DropdownMenuItem(
+          //       value: 'nearest_time', child: Text('nearest_time'.tr())),
+          // ],
           onChanged: onChanged,
           validator: validator,
         ),

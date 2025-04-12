@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warshati/features/main/presentation/bloc/bloc/main_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:warshati/src/application/di/injection.dart';
 import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
 import 'package:warshati/src/core/widgets/default_button.dart';
 
+import '../../../../src/infrastructure/storage/local_storage.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -16,12 +18,19 @@ class ProfilePage extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     TextTheme textTheme = theme.textTheme;
     ColorProvider colorProvider = ColorProvider();
+    final LocalStorage storage = sl<LocalStorage>();
     return Column(
       children: [
         20.verticalSpace,
-        _buildCustomText(context, textTheme, "الأسم :", "أبو عنتر"),
+        _buildCustomText(
+          context,
+          textTheme,
+          "name".tr(),
+          storage.userinformation.name ?? "",
+        ),
         25.verticalSpace,
-        _buildCustomText(context, textTheme, "الرقم الشخصي :", "099998889"),
+        _buildCustomText(context, textTheme, "phoneNumber".tr(),
+            storage.userinformation.phoneNumber),
         Spacer(),
         DefaultButton(
           onTap: () async {
@@ -32,7 +41,7 @@ class ProfilePage extends StatelessWidget {
           width: 250,
           height: 55,
           content: Text(
-            "تسجيل الخروج",
+            "logOut".tr(),
             style: textTheme.displaySmall!.copyWith(
               color: Colors.white,
               fontSize: 15,

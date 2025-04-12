@@ -1,17 +1,25 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warshati/features/main/presentation/page/main_screen.dart';
+import 'package:warshati/src/core/localization/app_languages.dart';
 import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
+import 'package:warshati/src/infrastructure/storage/local_storage.dart';
 
 import '../../../../src/application/di/injection.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';
 import '../bloc/bloc/main_bloc.dart';
 import '../bloc/bloc/main_event.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
 
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     final MainBloc bloc = sl<MainBloc>();
@@ -37,7 +45,7 @@ class CustomDrawer extends StatelessWidget {
                 ]),
               ),
               child: Text(
-                'Warshati',
+                'SHAM',
                 style: textTheme.titleMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -48,7 +56,7 @@ class CustomDrawer extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                "momomo",
+                sl<LocalStorage>().userinformation.name ?? "username",
                 style: textTheme.displaySmall!.copyWith(
                   fontSize: 16,
                 ),
@@ -60,7 +68,7 @@ class CustomDrawer extends StatelessWidget {
                 color: colorProvider.primary,
               ),
               title: Text(
-                "الصفحة الرئيسية",
+                "home".tr(),
                 style: textTheme.displaySmall!.copyWith(
                   fontSize: 16,
                 ),
@@ -75,7 +83,7 @@ class CustomDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.person, color: colorProvider.primary),
               title: Text(
-                "ملفي الشخصي",
+                "profile".tr(),
                 style: textTheme.displaySmall!.copyWith(
                   fontSize: 16,
                 ),
@@ -87,13 +95,49 @@ class CustomDrawer extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            20.verticalSpace,
+            ListTile(
+              leading:
+                  Icon(Icons.language_outlined, color: colorProvider.primary),
+              trailing: Switch(
+                value: AppLanguages.isArabic,
+
+                // applyCupertinoTheme: true,
+                inactiveTrackColor: colorProvider.greyBorder,
+                inactiveThumbColor: colorProvider.black,
+
+                trackOutlineColor: WidgetStatePropertyAll(colorProvider.white),
+                onChanged: (newValue) {
+                  setState(() {
+                    Locale locale = newValue
+                        ? AppLocales.arabicLocale
+                        : AppLocales.englishLocale;
+                    AppLanguages.setLocale(context, locale);
+                  });
+                },
+              ),
+              title: Text(
+                "change_language".tr(),
+                style: textTheme.displaySmall!.copyWith(
+                  fontSize: 16,
+                ),
+              ),
+              onTap: () {
+                bool isArabic = AppLanguages.isArabic;
+                Locale locale = isArabic
+                    ? AppLocales.arabicLocale
+                    : AppLocales.englishLocale;
+                AppLanguages.setLocale(context, locale);
+                Navigator.pop(context);
+              },
+            ),
             50.verticalSpace,
             ListTile(
               leading: Icon(
                 Icons.logout_outlined,
                 color: Colors.red,
               ),
-              title: Text("تسجيل الخروج",
+              title: Text("logOut".tr(),
                   style: textTheme.displaySmall!.copyWith(
                     color: Colors.red,
 
