@@ -1,4 +1,4 @@
-name: warshati
+name: sham
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -93,7 +93,7 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/warshati_logo3.png"  
+  image_path: "assets/images/sham_logo_im.png"  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

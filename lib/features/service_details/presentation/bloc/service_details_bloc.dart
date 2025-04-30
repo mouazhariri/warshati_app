@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:warshati/features/service_details/domain/entities/order_Service_params.dart';
-import 'package:warshati/src/application/architecture/bloc/base_state.dart';
+import 'package:sham/features/service_details/domain/entities/order_Service_params.dart';
+import 'package:sham/src/application/architecture/bloc/base_state.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
 
 import '../../domain/usecases/service_details_use_case.dart';
 
@@ -23,10 +25,12 @@ class ServiceDetailsBloc
   FutureOr<void> _orderService(
       OrderServiceEvent event, Emitter<ServiceDetailsState> emit) async {
     emit(state.copyWith(isLoading: true));
+    final localStorage=sl<LocalStorage>();
     final result = await serviceDetailsUseCase(OrderServiceParams(
       name: event.params.name,
       phoneNumber: event.params.phoneNumber,
-      serviceId: event.params.serviceId,
+      servicesId: [0,2,2,2,2],
+      userId: localStorage.userinformation.id,
       serviceDay: event.params.serviceDay,
       address: event.params.address,
     ));

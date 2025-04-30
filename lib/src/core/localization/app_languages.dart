@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
-import 'package:warshati/src/logger/log_services/dev_logger.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/src/logger/log_services/dev_logger.dart';
 
 abstract class AppLanguages {
   static Locale curreentLocal = AppLocales.defualtLocale;

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:warshati/src/resourses/color_manager/color_manager.dart';
-import 'package:warshati/src/resourses/theme/theme_manager.dart';
+import 'package:sham/src/resourses/color_manager/color_manager.dart';
+import 'package:sham/src/resourses/theme/theme_manager.dart';
 
 class ColorProvider extends ColorsManager {
   final ColorsManager _lightColorsManager = LightColorsManager();

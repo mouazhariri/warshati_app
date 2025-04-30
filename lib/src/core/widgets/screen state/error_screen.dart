@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/src/core/utils/constants/messages/general_messages.dart';
-import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
-import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
-import 'package:warshati/src/resourses/color_manager/color_provider.dart';
+import 'package:sham/src/core/utils/constants/messages/general_messages.dart';
+import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
+import 'package:sham/src/core/utils/extenssion/widget_extensions.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/src/resourses/color_manager/color_provider.dart';
 
 class ErrorScreen extends StatelessWidget {
   final String? error;

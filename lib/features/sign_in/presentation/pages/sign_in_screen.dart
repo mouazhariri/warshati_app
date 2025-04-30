@@ -4,17 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:warshati/features/sign_in/domain/entities/sign_in_params.dart';
-import 'package:warshati/features/sign_in/presentation/bloc/sign_in_bloc.dart';
-import 'package:warshati/features/sign_in/presentation/widgets/fields/user_name_form_field.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/application/router/app_router.dart';
-import 'package:warshati/src/application/router/app_routes.dart';
-import 'package:warshati/src/core/utils/constants/messages/app_messages.dart';
-import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
-import 'package:warshati/src/core/widgets/screen%20state/error_screen.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
-import 'package:warshati/src/resourses/color_manager/color_provider.dart';
+import 'package:sham/features/sign_in/domain/entities/sign_in_params.dart';
+import 'package:sham/features/sign_in/presentation/bloc/sign_in_bloc.dart';
+import 'package:sham/features/sign_in/presentation/widgets/fields/user_name_form_field.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/application/router/app_router.dart';
+import 'package:sham/src/application/router/app_routes.dart';
+import 'package:sham/src/core/utils/constants/messages/app_messages.dart';
+import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
+import 'package:sham/src/core/widgets/screen%20state/error_screen.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/src/resourses/color_manager/color_provider.dart';
 
 import '../widgets/fields/phone_number_field_widget.dart';
 
@@ -57,7 +57,7 @@ class SignInScreen extends StatelessWidget {
                         children: [
                           50.verticalSpace,
                           Text(
-                            'hi_welcome_to_warshati'.tr(),
+                            'hi_welcome_to_sham'.tr(),
                             textAlign: TextAlign.center,
                             style: textTheme.displayMedium!
                                 .copyWith(

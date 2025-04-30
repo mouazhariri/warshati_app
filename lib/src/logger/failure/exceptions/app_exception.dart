@@ -1,4 +1,4 @@
-import 'package:warshati/src/logger/error/error_response.dart';
+import 'package:sham/src/logger/error/error_response.dart';
 
 class ServerException implements Exception {
   final ErrorResponse errorMessageModel;

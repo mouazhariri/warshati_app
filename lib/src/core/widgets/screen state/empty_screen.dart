@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
 
 class EmptyScreen extends StatelessWidget {
   final String? text;

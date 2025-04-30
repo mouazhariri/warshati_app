@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
 import 'package:go_router/go_router.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/application/router/app_routes.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/application/router/app_routes.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
 
 import '../../../../src/core/utils/constants/constants.dart';
 

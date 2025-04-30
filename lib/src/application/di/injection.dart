@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:warshati/src/application/di/injection.config.dart';
-import 'package:warshati/src/infrastructure/api/endpoint/base_urls.dart';
-import 'package:warshati/src/infrastructure/network/dio_remote_interceptor.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/src/application/di/injection.config.dart';
+import 'package:sham/src/infrastructure/api/endpoint/base_urls.dart';
+import 'package:sham/src/infrastructure/network/dio_remote_interceptor.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
 
 GetIt sl = GetIt.instance;
 

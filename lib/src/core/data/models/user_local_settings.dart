@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
-import 'package:warshati/src/core/utils/enums/app_theme_types.dart';
+import 'package:sham/src/core/utils/enums/app_theme_types.dart';
 
-import 'package:warshati/src/infrastructure/storage/hive/hive_type_ids.dart';
+import 'package:sham/src/infrastructure/storage/hive/hive_type_ids.dart';
 
 part 'user_local_settings.g.dart';
 
@@ -43,7 +43,7 @@ class UserLocalSettings extends HiveObject implements EquatableMixin {
   static UserLocalSettings defaultSettings = UserLocalSettings(
     isFirstTimeOpenApp: false,
     theme: AppThemeType.light,
-    locale: 'en',
+    locale: 'ar',
   );
 
   @override

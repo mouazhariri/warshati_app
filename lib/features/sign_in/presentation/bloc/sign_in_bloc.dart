@@ -4,12 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:warshati/features/sign_in/domain/entities/sign_in_params.dart';
-import 'package:warshati/features/sign_in/domain/usecases/sign_in_use_case.dart';
-import 'package:warshati/src/application/architecture/bloc/base_state.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/core/utils/constants/constants.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/features/sign_in/domain/entities/sign_in_params.dart';
+import 'package:sham/features/sign_in/domain/usecases/sign_in_use_case.dart';
+import 'package:sham/src/application/architecture/bloc/base_state.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/core/utils/constants/constants.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
 
 part 'sign_in_event.dart';
 part 'sign_in_state.dart';

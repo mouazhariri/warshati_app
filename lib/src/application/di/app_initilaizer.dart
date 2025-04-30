@@ -5,11 +5,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/application/router/app_router.dart';
-import 'package:warshati/src/infrastructure/api/endpoint/base_urls.dart';
-import 'package:warshati/src/infrastructure/storage/hive/hive_initializer.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/application/router/app_router.dart';
+import 'package:sham/src/infrastructure/api/endpoint/base_urls.dart';
+import 'package:sham/src/infrastructure/storage/hive/hive_initializer.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
 
 abstract class AppInitilaizer {
   static init() async {

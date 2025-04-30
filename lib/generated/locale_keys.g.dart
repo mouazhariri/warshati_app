@@ -41,7 +41,7 @@ abstract class  LocaleKeys {
   static const mustBeTenDigits = 'mustBeTenDigits';
   static const our_services = 'our_services';
   static const welcome = 'welcome';
-  static const hi_welcome_to_warshati = 'hi_welcome_to_warshati';
+  static const hi_welcome_to_sham = 'hi_welcome_to_sham';
   static const we_happy_to_see_you = 'we_happy_to_see_you';
   static const order_success = 'order_success';
   static const processing_data = 'processing_data';

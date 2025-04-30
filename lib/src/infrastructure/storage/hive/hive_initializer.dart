@@ -1,11 +1,11 @@
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:warshati/src/core/data/models/user_information.dart';
-import 'package:warshati/src/core/data/models/user_local_settings.dart';
-import 'package:warshati/src/core/utils/enums/app_theme_types.dart';
-import 'package:warshati/src/infrastructure/storage/hive/hive_boxes.dart';
-import 'package:warshati/src/infrastructure/storage/hive/hive_type_ids.dart';
-import 'package:warshati/src/logger/log_services/dev_logger.dart';
+import 'package:sham/src/core/data/models/user_information.dart';
+import 'package:sham/src/core/data/models/user_local_settings.dart';
+import 'package:sham/src/core/utils/enums/app_theme_types.dart';
+import 'package:sham/src/infrastructure/storage/hive/hive_boxes.dart';
+import 'package:sham/src/infrastructure/storage/hive/hive_type_ids.dart';
+import 'package:sham/src/logger/log_services/dev_logger.dart';
 
 abstract class HiveInitializer {
   static Future<void> initialize() async {

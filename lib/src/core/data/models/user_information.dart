@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
 
-import 'package:warshati/src/infrastructure/storage/hive/hive_type_ids.dart';
+import 'package:sham/src/infrastructure/storage/hive/hive_type_ids.dart';
 
 part 'user_information.g.dart';
 

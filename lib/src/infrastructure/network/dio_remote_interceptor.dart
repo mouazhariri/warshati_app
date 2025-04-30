@@ -1,12 +1,12 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
-import 'package:warshati/src/core/utils/constants/constants.dart';
-import 'package:warshati/src/core/utils/constants/messages/app_messages.dart';
-import 'package:warshati/src/core/utils/constants/messages/general_messages.dart';
-import 'package:warshati/src/infrastructure/api/endpoint/base_urls.dart';
-import 'package:warshati/src/infrastructure/api/response/api_response.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
-import 'package:warshati/src/logger/log_services/dev_logger.dart';
+import 'package:sham/src/core/utils/constants/constants.dart';
+import 'package:sham/src/core/utils/constants/messages/app_messages.dart';
+import 'package:sham/src/core/utils/constants/messages/general_messages.dart';
+import 'package:sham/src/infrastructure/api/endpoint/base_urls.dart';
+import 'package:sham/src/infrastructure/api/response/api_response.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/src/logger/log_services/dev_logger.dart';
 
 class RemoteInterceptor extends Interceptor {
   RemoteInterceptor(this.storageProvider);
@@ -17,12 +17,14 @@ class RemoteInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
+    final locale=storageProvider.userSettings.locale;
     // super.onRequest(options, handler);
     final dioOption = options.copyWith(
       baseUrl: BaseUrls.baseUrl,
     );
     final headers = <String, String>{
       'Accept': 'application/json',
+      'Accept-Language': locale,
       // 'Content-Type':
       //     'application/json', // Ensure this is set to 'application/json'
     };
@@ -34,7 +36,7 @@ class RemoteInterceptor extends Interceptor {
     //     'REQUEST STARTED WITH BASE URL : ${customOptions.baseUrl}');
     Dev.logLine('REQUEST STARTED WITH TOKEN : $token');
     // customOptions.headers['Authorization'] = 'Bearer $token';
-    customOptions.headers['Authorization'] = 'Bearer $token';
+    customOptions.headers['Authorization'] = token;
     List<ConnectivityResult> connectivityResult =
         await (Connectivity().checkConnectivity());
     // interceptorLog(

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/core/data/models/user_information.dart';
-import 'package:warshati/src/core/data/models/user_local_settings.dart';
-import 'package:warshati/src/core/localization/app_languages.dart';
-import 'package:warshati/src/core/utils/constants/constants.dart';
-import 'package:warshati/src/core/utils/enums/app_theme_types.dart';
-import 'package:warshati/src/infrastructure/storage/hive/hive_boxes.dart';
-import 'package:warshati/src/infrastructure/storage/hive/locale_adapter.dart';
-import 'package:warshati/src/logger/log_services/dev_logger.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/core/data/models/user_information.dart';
+import 'package:sham/src/core/data/models/user_local_settings.dart';
+import 'package:sham/src/core/localization/app_languages.dart';
+import 'package:sham/src/core/utils/constants/constants.dart';
+import 'package:sham/src/core/utils/enums/app_theme_types.dart';
+import 'package:sham/src/infrastructure/storage/hive/hive_boxes.dart';
+import 'package:sham/src/infrastructure/storage/hive/locale_adapter.dart';
+import 'package:sham/src/logger/log_services/dev_logger.dart';
 
 @LazySingleton()
 class LocalStorage {

@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
-import 'package:warshati/features/home/domain/usecases/home_use_case.dart';
-import 'package:warshati/src/application/architecture/use_case/base_usecase.dart';
+import 'package:sham/features/home/domain/usecases/home_use_case.dart';
+import 'package:sham/src/application/architecture/use_case/base_usecase.dart';
 
 import 'home_event.dart';
 import 'home_state.dart';
@@ -18,6 +19,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> _getAllServices(
       GetAllServicesEvent event, Emitter<HomeState> emit) async {
     emit(state.copyWith(isLoading: true));
+    debugPrint("INIT SERVICES");
     final service = await homeUseCase(NoParameters());
     service.fold((failure) {
       emit(state.copyWith(

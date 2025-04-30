@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart' as local;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
-import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
+import 'package:sham/src/core/utils/extenssion/widget_extensions.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
 
 import '../../../../../src/core/utils/functions/arabic_number_input_formatter.dart';
 import '../../../../../src/core/utils/validator/mobile_validator.dart';
@@ -74,8 +74,8 @@ class PhoneNumberField extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: colorProvider.lightGrey),
-          borderRadius: BorderRadius.all(Radius.circular(12))),
-      width: 70,
+          borderRadius: BorderRadius.all(Radius.circular(8))),
+      width: 80,
       height: 52,
       child: IntrinsicHeight(
         child: Row(

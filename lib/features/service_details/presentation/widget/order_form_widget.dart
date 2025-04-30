@@ -1,18 +1,23 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:warshati/features/service_details/presentation/bloc/service_details_bloc.dart';
-import 'package:warshati/features/service_details/presentation/widget/address_field_widget.dart';
-import 'package:warshati/features/service_details/presentation/widget/day_dropdown_widget.dart';
-import 'package:warshati/features/sign_in/presentation/widgets/fields/phone_number_field_widget.dart';
-import 'package:warshati/features/sign_in/presentation/widgets/fields/user_name_form_field.dart';
-import 'package:warshati/src/core/widgets/default_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sham/features/service_details/domain/entities/order_Service_params.dart';
+import 'package:sham/features/service_details/presentation/bloc/service_details_bloc.dart';
+import 'package:sham/features/service_details/presentation/widget/address_field_widget.dart';
+import 'package:sham/features/service_details/presentation/widget/day_dropdown_widget.dart';
+import 'package:sham/features/sign_in/presentation/widgets/fields/phone_number_field_widget.dart';
+import 'package:sham/features/sign_in/presentation/widgets/fields/user_name_form_field.dart';
+import 'package:sham/src/core/widgets/default_button.dart';
 
 import '../../../../src/application/di/injection.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';
 
 class OrderFormWidget extends StatefulWidget {
-  const OrderFormWidget({super.key});
+  final int? serviceId;
+final List<int> selectedIds;
+
+  const OrderFormWidget({super.key, required this.serviceId,required this.selectedIds});
 
   @override
   State<OrderFormWidget> createState() => _OrderFormWidgetState();
@@ -38,21 +43,23 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
   void _submitForm(context, ServiceDetailsBloc bloc) {
     if (_formKey.currentState!.validate()) {
       // Form is valid, proceed with submission
-      Navigator.of(context).pop();
-      BotToast.showText(
-        text: "order_success".tr(),
-        textStyle: TextStyle(fontSize: 16, color: Colors.white),
-        contentColor: Colors.green,
-        borderRadius: BorderRadius.circular(8),
-        duration: Duration(seconds: 3),
-        align: Alignment.bottomCenter,
-      );
+      bloc.add(OrderServiceEvent(
+        params: OrderServiceParams(
+          name: _usernameController.text,
+          servicesId: widget.selectedIds,
+          phoneNumber: _phoneController.text,
+          serviceDay: _selectedDay??"آقرب يوم",
+          address:  _addressController.text,
+          userId: 0,
+        ),
+      ));
+    
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final ServiceDetailsBloc bloc = sl<ServiceDetailsBloc>();
+    final ServiceDetailsBloc bloc = context.read<ServiceDetailsBloc>();
     ThemeData theme = Theme.of(context);
     TextTheme textTheme = theme.textTheme;
     ColorProvider colorProvider = ColorProvider();
@@ -82,6 +89,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
           const SizedBox(height: 16),
           AddressFieldWidget(controller: _addressController),
           const SizedBox(height: 50),
+          bloc.state.isLoading?CircularProgressIndicator():
           DefaultButton(
             onTap: () => _submitForm(context, bloc),
             height: 50,
@@ -95,7 +103,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
               ),
             ),
             backgroundColor: colorProvider.primary,
-          )
+          ),
         ],
       ),
     );

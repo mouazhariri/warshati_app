@@ -38,7 +38,7 @@
     "mustBeTenDigits": "must Be Ten Digits",
     "our_services": "Our Services",
     "welcome": "Welcome ",
-    "hi_welcome_to_warshati": "Hi, Welcome ! 👋",
+    "hi_welcome_to_sham": "Hi, Welcome ! 👋",
     "we_happy_to_see_you": "We happy to see you. Sign In to your account",
     "order_success": "Your Order under proccessing",
     "processing_data": "Processing Data",
@@ -47,5 +47,7 @@
     "logOut": "LogOut",
     "name": "Name :",
     "phoneNumber": "Phone number :",
+    "service_name": "Service name :",
+    "created_a": "Created at :",
     "please_select_a_day": "Please select a day"
 }

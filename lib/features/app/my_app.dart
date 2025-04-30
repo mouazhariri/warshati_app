@@ -2,9 +2,9 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/generated/codegen_loader.g.dart';
-import 'package:warshati/src/application/router/app_router.dart';
-import 'package:warshati/src/resourses/theme/theme_manager.dart';
+import 'package:sham/generated/codegen_loader.g.dart';
+import 'package:sham/src/application/router/app_router.dart';
+import 'package:sham/src/resourses/theme/theme_manager.dart';
 
 class MyApp extends StatefulWidget {
   final String initialRoute;

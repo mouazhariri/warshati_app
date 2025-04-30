@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:warshati/generated/locale_keys.g.dart';
+import 'package:sham/generated/locale_keys.g.dart';
 
 class GeneralMessages {
   String get noInternetMessage =>

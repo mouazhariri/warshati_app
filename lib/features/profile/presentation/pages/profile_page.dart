@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/features/main/presentation/bloc/bloc/main_bloc.dart';
-import 'package:warshati/features/main/presentation/bloc/bloc/main_event.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
-import 'package:warshati/src/core/widgets/default_button.dart';
+import 'package:sham/features/main/presentation/bloc/bloc/main_bloc.dart';
+import 'package:sham/features/main/presentation/bloc/bloc/main_event.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/core/utils/extenssion/widget_extensions.dart';
+import 'package:sham/src/core/widgets/default_button.dart';
 
 import '../../../../src/infrastructure/storage/local_storage.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';

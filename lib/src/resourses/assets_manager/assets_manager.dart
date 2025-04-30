@@ -1,12 +1,12 @@
-import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
+import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
 
 class AppImages {
   static const String _assetsImagesPath = 'assets/images';
   String get assetImagesPath => _assetsImagesPath;
   static String emptyScreen = 'im_empty_screen.png'.asAssetsImage;
   static String errorScreen = 'im_error_screen.png'.asAssetsImage;
-  static String logo = 'warshati_logo3.png'.asAssetsImage;
-  static String warshatiImage = 'warshati.png'.asAssetsImage;
+  static String logo = 'sham_logo3.png'.asAssetsImage;
+  static String shamImage = 'sham.png'.asAssetsImage;
 }
 
 class AppIcons {
@@ -26,5 +26,5 @@ class AppLottie {
 class AppGif {
   static const String _assetsGifPath = 'assets/lottie';
   String get assetsGifPath => _assetsGifPath;
-  static String splashLogo = 'warshati_splash1.gif'.asAssetsLottie;
+  static String splashLogo = 'sham_splash1.gif'.asAssetsLottie;
 }

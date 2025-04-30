@@ -1,6 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:warshati/src/infrastructure/api/endpoint/dotenv_keys.dart';
-import 'package:warshati/src/logger/log_services/dev_logger.dart';
+import 'package:sham/src/infrastructure/api/endpoint/dotenv_keys.dart';
+import 'package:sham/src/logger/log_services/dev_logger.dart';
 
 class BaseUrls {
   static String baseUrl = '';

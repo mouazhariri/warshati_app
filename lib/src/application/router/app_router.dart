@@ -1,52 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:warshati/features/main/presentation/page/main_screen.dart';
-import 'package:warshati/features/service_details/presentation/screen/service_details_page.dart';
-import 'package:warshati/features/sign_in/presentation/pages/sign_in_screen.dart';
-import 'package:warshati/src/application/router/app_routes.dart';
-import 'package:warshati/src/application/router/custom_navigation_observer.dart';
-import 'package:warshati/src/application/router/fallback_screen.dart';
+import 'package:sham/features/home/domain/entities/services_entity.dart';
+import 'package:sham/features/main/presentation/page/main_screen.dart';
+import 'package:sham/features/service_details/presentation/screen/service_details_page.dart';
+import 'package:sham/features/sign_in/presentation/pages/sign_in_screen.dart';
+import 'package:sham/src/application/router/app_routes.dart';
+import 'package:sham/src/application/router/custom_navigation_observer.dart';
+import 'package:sham/src/application/router/fallback_screen.dart';
 
 import '../../../features/splash/presentation/screen/splash_screen.dart';
 
 final GlobalKey<NavigatorState> rootKey = GlobalKey<NavigatorState>();
 
-// class AppRouter {
-//   final GoRouter goRouter;
-
-//   AppRouter() : goRouter = _getRouter;
-
-//   static late AppRouter _appRouter;
-
-//   static init() {
-//     _appRouter = AppRouter();
-//   }
-
-//   static get getRouter => _appRouter.goRouter;
-//   static get _getRouter => GoRouter(
-//       navigatorKey: rootKey,
-//       initialLocation: AppRoutes.initScreen,
-//       observers: [CustomNavigationObserver()],
-//       errorBuilder: (context, state) => const FallbackScreen(),
-//       routes: <RouteBase>[
-//         GoRoute(
-//           path: AppRoutes.initScreen,
-//           parentNavigatorKey: rootKey,
-//           builder: (BuildContext context, GoRouterState state) {
-//             return Scaffold(
-//               body: Container(
-//                 color: Colors.grey,
-//               ),
-//             );
-//           },
-//         ),
-//       ]);
-// }
 class AppRouter {
-  // static final _router = AppRouter._internal();
-
-  // factory AppRouter() => _router;
-
   final GoRouter goRouter;
 
   AppRouter(String initialRoute) : goRouter = _createRouter(initialRoute);
@@ -80,19 +46,20 @@ class AppRouter {
           },
         ),
         GoRoute(
-          path: '${AppRoutes.serviceDetails}/:name/:image/:description',
+          path: '${AppRoutes.serviceDetails}',
           name: AppRoutes.serviceDetails,
-          parentNavigatorKey: rootKey,
+          // parentNavigatorKey: rootKey,
+          
           builder: (BuildContext context, GoRouterState state) {
-            final serviceName = state.pathParameters['name'] ?? '';
-            final serviceImage = state.pathParameters['image'] ?? '';
-            final serviceDescription =
-                state.pathParameters['description'] ?? '';
+            final ServicesEntity? services=state.extra as ServicesEntity?;
+            // final serviceName = state.pathParameters['name'] ?? '';
+            // final serviceImage = state.pathParameters['image'] ?? '';
+            // final int serviceId = state.pathParameters['serviceId'] as int;
+            // final serviceDescription =
+            //     state.pathParameters['description'] ?? '';
 
             return ServiceDetailsPage(
-              serviceName: serviceName,
-              serviceImage: serviceImage,
-              serviceDescription: serviceDescription,
+              services: services,
             );
           },
         ),

@@ -31,10 +31,11 @@ class Dev {
   static void logLine(dynamic value) {
     if (!_isLoggerEnable) return;
     debugPrint(
-      Colorize("******  $value  ******")
-          .bgBlue()
+      Colorize("******(  $value  )******")
+          .bgGreen()
           .black()
           .bold()
+          
           .italic()
           .initial,
     );

@@ -82,32 +82,20 @@ _i174.GetIt $initGetIt(
   gh.lazySingleton<_i409.GlobalKey<_i409.NavigatorState>>(
       () => registerModule.navigatorKey);
   gh.lazySingleton<_i976.LocalStorage>(() => _i976.LocalStorage());
-  gh.lazySingleton<_i689.MyOrdersRemoteDataSource>(
-      () => _i240.MyOrdersRemoteDataSourceImpl());
   gh.lazySingleton<_i976.ServiceDetailsRemoteDataSource>(
       () => _i1014.ServiceDetailsRemoteDataSourceImpl());
+  gh.lazySingleton<_i1012.HomeRemoteDataSource>(
+      () => _i207.HomeRemoteDataSourceImpl());
   gh.factory<String>(
     () => registerModule.baseUrl,
     instanceName: 'baseUrl',
   );
-  gh.lazySingleton<_i1012.HomeRemoteDataSource>(
-      () => _i207.HomeRemoteDataSourceImpl());
-  gh.lazySingleton<_i834.HomeRepository>(() => _i955.HomeRepositoryImpl(
-      remoteDataSource: gh<_i1012.HomeRemoteDataSource>()));
-  gh.lazySingleton<_i163.ServiceDetailsRepository>(() =>
-      _i825.ServiceDetailsRepositoryImpl(
-          remoteDataSource: gh<_i976.ServiceDetailsRemoteDataSource>()));
-  gh.lazySingleton<_i485.ServiceDetailsUseCase>(() =>
-      _i485.ServiceDetailsUseCase(
-          baseRepositoryNameRepository: gh<_i163.ServiceDetailsRepository>()));
-  gh.lazySingleton<_i786.HomeServices>(() => _i786.HomeServices(
-        gh<_i361.Dio>(),
-        baseUrl: gh<String>(instanceName: 'baseUrl'),
-      ));
-  gh.lazySingleton<_i283.OrderServiceServices>(() => _i283.OrderServiceServices(
-        gh<_i361.Dio>(),
-        baseUrl: gh<String>(instanceName: 'baseUrl'),
-      ));
+  gh.lazySingleton<_i689.MyOrdersRemoteDataSource>(
+      () => _i240.MyOrdersRemoteDataSourceImpl());
+  gh.lazySingleton<_i501.MyOrdersRepository>(() => _i294.MyOrdersRepositoryImpl(
+      remoteDataSource: gh<_i689.MyOrdersRemoteDataSource>()));
+  gh.lazySingleton<_i417.MyOrdersBloc>(
+      () => _i417.MyOrdersBloc(gh<_i501.MyOrdersRepository>()));
   gh.lazySingleton<_i15.SignInServices>(() => _i15.SignInServices(
         gh<_i361.Dio>(),
         baseUrl: gh<String>(instanceName: 'baseUrl'),
@@ -116,24 +104,36 @@ _i174.GetIt $initGetIt(
         gh<_i361.Dio>(),
         baseUrl: gh<String>(instanceName: 'baseUrl'),
       ));
-  gh.lazySingleton<_i501.MyOrdersRepository>(() => _i294.MyOrdersRepositoryImpl(
-      remoteDataSource: gh<_i689.MyOrdersRemoteDataSource>()));
+  gh.lazySingleton<_i283.OrderServiceServices>(() => _i283.OrderServiceServices(
+        gh<_i361.Dio>(),
+        baseUrl: gh<String>(instanceName: 'baseUrl'),
+      ));
+  gh.lazySingleton<_i786.HomeServices>(() => _i786.HomeServices(
+        gh<_i361.Dio>(),
+        baseUrl: gh<String>(instanceName: 'baseUrl'),
+      ));
+  gh.lazySingleton<_i163.ServiceDetailsRepository>(() =>
+      _i825.ServiceDetailsRepositoryImpl(
+          remoteDataSource: gh<_i976.ServiceDetailsRemoteDataSource>()));
   gh.lazySingleton<_i299.SignInRemoteDataSource>(() =>
       _i983.SignInRemoteDataSourceImpl(
           signInServices: gh<_i15.SignInServices>()));
-  gh.lazySingleton<_i723.HomeUseCase>(() => _i723.HomeUseCase(
-      baseRepositoryNameRepository: gh<_i834.HomeRepository>()));
-  gh.lazySingleton<_i68.SignInRepository>(() => _i142.SignInRepositoryImpl(
-      remoteDataSource: gh<_i299.SignInRemoteDataSource>()));
+  gh.lazySingleton<_i834.HomeRepository>(() => _i955.HomeRepositoryImpl(
+      remoteDataSource: gh<_i1012.HomeRemoteDataSource>()));
+  gh.lazySingleton<_i485.ServiceDetailsUseCase>(() =>
+      _i485.ServiceDetailsUseCase(
+          baseRepositoryNameRepository: gh<_i163.ServiceDetailsRepository>()));
   gh.factory<_i905.ServiceDetailsBloc>(
       () => _i905.ServiceDetailsBloc(gh<_i485.ServiceDetailsUseCase>()));
-  gh.lazySingleton<_i417.MyOrdersBloc>(
-      () => _i417.MyOrdersBloc(gh<_i501.MyOrdersRepository>()));
-  gh.lazySingleton<_i84.HomeBloc>(() => _i84.HomeBloc(gh<_i723.HomeUseCase>()));
+  gh.lazySingleton<_i68.SignInRepository>(() => _i142.SignInRepositoryImpl(
+      remoteDataSource: gh<_i299.SignInRemoteDataSource>()));
   gh.lazySingleton<_i1031.SignInUseCase>(() => _i1031.SignInUseCase(
       baseRepositoryNameRepository: gh<_i68.SignInRepository>()));
+  gh.lazySingleton<_i723.HomeUseCase>(() => _i723.HomeUseCase(
+      baseRepositoryNameRepository: gh<_i834.HomeRepository>()));
   gh.factory<_i535.SignInBloc>(
       () => _i535.SignInBloc(gh<_i1031.SignInUseCase>()));
+  gh.lazySingleton<_i84.HomeBloc>(() => _i84.HomeBloc(gh<_i723.HomeUseCase>()));
   return getIt;
 }
 

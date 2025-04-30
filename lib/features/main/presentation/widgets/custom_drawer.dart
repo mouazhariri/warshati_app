@@ -2,10 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/features/main/presentation/page/main_screen.dart';
-import 'package:warshati/src/core/localization/app_languages.dart';
-import 'package:warshati/src/core/utils/extenssion/widget_extensions.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/features/home/presentation/bloc/home_bloc.dart';
+import 'package:sham/features/home/presentation/bloc/home_event.dart';
+import 'package:sham/features/my_orders/presentation/bloc/my_orders_bloc.dart';
+import 'package:sham/features/my_orders/presentation/bloc/my_orders_event.dart';
+import 'package:sham/src/core/localization/app_languages.dart';
+import 'package:sham/src/core/utils/extenssion/widget_extensions.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
 
 import '../../../../src/application/di/injection.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';
@@ -113,6 +116,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         ? AppLocales.arabicLocale
                         : AppLocales.englishLocale;
                     AppLanguages.setLocale(context, locale);
+                context.read<HomeBloc>().add(GetAllServicesEvent());
+
                   });
                 },
               ),
@@ -123,12 +128,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
-                bool isArabic = AppLanguages.isArabic;
-                Locale locale = isArabic
-                    ? AppLocales.arabicLocale
-                    : AppLocales.englishLocale;
-                AppLanguages.setLocale(context, locale);
-                Navigator.pop(context);
+                // bool isArabic = AppLanguages.isArabic;
+                // Locale locale = isArabic
+                //     ? AppLocales.arabicLocale
+                //     : AppLocales.englishLocale;
+                // AppLanguages.setLocale(context, locale);
+                // context.read<HomeBloc>().add(GetAllServicesEvent());
+                // sl<HomeBloc>().add(GetAllServicesEvent());
+                // sl<MyOrdersBloc>().add(GetMyOrdersEvent());
+                // Navigator.pop(context);
               },
             ),
             50.verticalSpace,

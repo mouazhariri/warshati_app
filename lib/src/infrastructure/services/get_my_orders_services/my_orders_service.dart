@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-import 'package:warshati/src/infrastructure/api/response/api_response.dart';
+import 'package:sham/src/infrastructure/api/response/api_response.dart';
 
 import '../../../../features/my_orders/domain/entities/my_orders_entity.dart';
 import '../../api/endpoint/api_endpoints.dart';

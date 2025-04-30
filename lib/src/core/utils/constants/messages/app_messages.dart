@@ -1,7 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/src/resourses/color_manager/color_provider.dart';
+import 'package:sham/src/resourses/color_manager/color_provider.dart';
 
 class AppMessages {
   static showSuccess({

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:warshati/src/logger/failure/app_failures.dart';
+import 'package:sham/src/logger/failure/app_failures.dart';
 
 import '../entities/my_orders_entity.dart';
 

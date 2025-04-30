@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warshati/src/core/localization/app_languages.dart';
+import 'package:sham/src/core/localization/app_languages.dart';
 
 Alignment getAlignmentByLocale({bool? isTop, bool? isBottom}) {
   if (isTop != null) {

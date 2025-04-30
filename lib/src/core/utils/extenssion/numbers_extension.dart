@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-import 'package:warshati/src/core/localization/app_languages.dart';
+import 'package:sham/src/core/localization/app_languages.dart';
 
 extension IntFormatting on int {
   /// Formats the number with K, M, B for thousands, millions, and billions respectively.

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:warshati/src/infrastructure/api/endpoint/base_urls.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/src/infrastructure/api/endpoint/base_urls.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
 
 import '../../../resourses/color_manager/color_manager.dart';
 

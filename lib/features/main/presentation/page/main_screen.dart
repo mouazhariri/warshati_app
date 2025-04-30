@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:warshati/features/home/presentation/pages/home_page.dart';
-import 'package:warshati/features/main/presentation/bloc/bloc/main_bloc.dart';
-import 'package:warshati/features/main/presentation/bloc/bloc/main_event.dart';
-import 'package:warshati/features/main/presentation/widgets/custom_bottom_navigation_bar_widget.dart';
-import 'package:warshati/features/main/presentation/widgets/custom_drawer.dart';
-import 'package:warshati/features/my_orders/presentation/pages/my_order_page.dart';
-import 'package:warshati/features/profile/presentation/pages/profile_page.dart';
-import 'package:warshati/src/application/di/injection.dart';
-import 'package:warshati/src/application/router/app_routes.dart';
-import 'package:warshati/src/core/utils/extenssion/assets_extension.dart';
-import 'package:warshati/src/infrastructure/storage/local_storage.dart';
-import 'package:warshati/src/resourses/assets_manager/assets_manager.dart';
+import 'package:sham/features/home/presentation/pages/home_page.dart';
+import 'package:sham/features/main/presentation/bloc/bloc/main_bloc.dart';
+import 'package:sham/features/main/presentation/bloc/bloc/main_event.dart';
+import 'package:sham/features/main/presentation/widgets/custom_bottom_navigation_bar_widget.dart';
+import 'package:sham/features/main/presentation/widgets/custom_drawer.dart';
+import 'package:sham/features/my_orders/presentation/pages/my_order_page.dart';
+import 'package:sham/features/profile/presentation/pages/profile_page.dart';
+import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/application/router/app_routes.dart';
+import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
+import 'package:sham/src/infrastructure/storage/local_storage.dart';
+import 'package:sham/src/resourses/assets_manager/assets_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../src/core/utils/constants/constants.dart';
@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   static final List<Widget> _pages = [
-    PopularServicesSection(),
+    HomePage(),
     MyOrdersPage(),
 
     // Center(child: Text("Soon.....", style: TextStyle(fontSize: 20))),
@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
           scaffoldKey.currentState?.openDrawer();
         },
       ),
-      actions: [AppImages.warshatiImage.asImageAssets(height: 50, width: 50)],
+      actions: [AppImages.shamImage.asImageAssets(height: 50, width: 50)],
     );
   }
 }

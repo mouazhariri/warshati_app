@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warshati/src/core/utils/enums/app_theme_types.dart';
-import 'package:warshati/src/core/utils/extenssion/numbers_extension.dart';
-import 'package:warshati/src/logger/log_services/dev_logger.dart';
-import 'package:warshati/src/resourses/color_manager/color_manager.dart';
-import 'package:warshati/src/resourses/font_manager/font_manager.dart';
+import 'package:sham/src/core/utils/enums/app_theme_types.dart';
+import 'package:sham/src/core/utils/extenssion/numbers_extension.dart';
+import 'package:sham/src/logger/log_services/dev_logger.dart';
+import 'package:sham/src/resourses/color_manager/color_manager.dart';
+import 'package:sham/src/resourses/font_manager/font_manager.dart';
 
 class AppThemes {
   static changeCurrentTheme(AppThemeType type) {
