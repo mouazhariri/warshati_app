@@ -5,9 +5,9 @@ class ValidationUtils {
     if (value == null || value.isEmpty) {
       return 'Please enter phone number';
     }
-    if (!RegExp(r'^[0-9]{10,15}$').hasMatch(value)) {
-      return 'Enter a valid phone number';
-    }
+    // if (!RegExp(r'^[0-9]{10,15}$').hasMatch(value)) {
+    //   return 'Enter a valid phone number';
+    // }
     return null;
   }
 
@@ -15,9 +15,9 @@ class ValidationUtils {
     if (value == null || value.isEmpty) {
       return 'address_required'.tr();
     }
-    if (value.length < 10) {
-      return 'inputed_address_short'.tr();
-    }
+    // if (value.length < 10) {
+    //   return 'inputed_address_short'.tr();
+    // }
     return null;
   }
 }

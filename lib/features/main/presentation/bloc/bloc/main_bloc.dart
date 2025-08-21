@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sham/src/application/router/app_router.dart';
+import 'package:sham/src/application/router/app_routes.dart';
 
 import '../../../../../src/application/di/injection.dart';
 import '../../../../../src/infrastructure/storage/local_storage.dart';
@@ -28,6 +30,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     final LocalStorage localeStorage = sl<LocalStorage>();
     await localeStorage.removeUserInfo();
     await localeStorage.removeSecuredString();
-    emit(state.copyWith(logOut: true));
+    // AppRouter(AppRoutes.initScreen);
+    emit(state.copyWith(logOut: true,selectedIndex: 0));
+    Future.delayed(Duration(milliseconds: 300));
+    emit(state.copyWith(logOut: false));
+
   }
 }

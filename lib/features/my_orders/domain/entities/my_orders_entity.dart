@@ -14,8 +14,8 @@ class MyOrdersEntity extends Equatable {
   final String address;
   @JsonKey(name: "service_day")
   final String serviceDay;
-  @JsonKey(name: "service_title")
-  final String serviceTitle;
+  @JsonKey(name: "service_titles")
+  final List<String> serviceTitle;
   @JsonKey(name: "created_at")
   final String createAt;
 
@@ -54,7 +54,7 @@ class MyOrdersEntity extends Equatable {
       String? address,
       String? serviceDay,
       String? createAt,
-      String? serviceTitle}) {
+      List<String>? serviceTitle}) {
     return MyOrdersEntity(
         id: id ?? this.id,
         phoneNumber: phoneNumber ?? this.phoneNumber,

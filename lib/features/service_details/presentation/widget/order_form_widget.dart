@@ -1,4 +1,4 @@
-import 'package:bot_toast/bot_toast.dart';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,11 +6,12 @@ import 'package:sham/features/service_details/domain/entities/order_Service_para
 import 'package:sham/features/service_details/presentation/bloc/service_details_bloc.dart';
 import 'package:sham/features/service_details/presentation/widget/address_field_widget.dart';
 import 'package:sham/features/service_details/presentation/widget/day_dropdown_widget.dart';
-import 'package:sham/features/sign_in/presentation/widgets/fields/phone_number_field_widget.dart';
-import 'package:sham/features/sign_in/presentation/widgets/fields/user_name_form_field.dart';
+import 'package:sham/features/auth/sign_in/presentation/widgets/fields/phone_number_field_widget.dart';
+import 'package:sham/features/service_details/presentation/widget/details_field.dart';
+import 'package:sham/features/service_details/presentation/widget/name_form.dart';
+import 'package:sham/features/service_details/presentation/widget/phone_number_field_form.dart';
 import 'package:sham/src/core/widgets/default_button.dart';
 
-import '../../../../src/application/di/injection.dart';
 import '../../../../src/resourses/color_manager/color_provider.dart';
 
 class OrderFormWidget extends StatefulWidget {
@@ -29,6 +30,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _secondPhoneController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _detailsController = TextEditingController();
   String? _selectedDay;
 
   @override
@@ -37,6 +39,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
     _phoneController.dispose();
     _secondPhoneController.dispose();
     _addressController.dispose();
+    _detailsController.dispose();
     super.dispose();
   }
 
@@ -50,6 +53,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
           phoneNumber: _phoneController.text,
           serviceDay: _selectedDay??"آقرب يوم",
           address:  _addressController.text,
+          details:  _detailsController.text,
           userId: 0,
         ),
       ));
@@ -68,9 +72,9 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
       child: Column(
         children: [
           const SizedBox(height: 16),
-          UserNameFormField(controller: _usernameController),
+          NameField(controller: _usernameController,enable: true),
           const SizedBox(height: 16),
-          PhoneNumberField(controller: _phoneController),
+          PhoneNumberFieldForm(controller: _phoneController),
           const SizedBox(height: 16),
           DayDropdownWidget(
             selectedDay: _selectedDay,
@@ -88,6 +92,8 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
           ),
           const SizedBox(height: 16),
           AddressFieldWidget(controller: _addressController),
+          const SizedBox(height: 16),
+          DetailsField(controller: _detailsController),
           const SizedBox(height: 50),
           bloc.state.isLoading?CircularProgressIndicator():
           DefaultButton(

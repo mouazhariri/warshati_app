@@ -11,15 +11,17 @@ class OrderServiceParams extends Equatable {
   final String name;
   final String phoneNumber;
   final String serviceDay;
+  final String details;
   final String address;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'services': json.encode(servicesId),
-      'user_id': userId,
-      'username': name,
+      // 'user_id': userId,
+      // 'username': name,
       'phone_number': phoneNumber,
       'service_day': serviceDay,
+      'details': details,
       'address': address,
     };
   }
@@ -30,6 +32,7 @@ class OrderServiceParams extends Equatable {
     required this.userId,
     required this.phoneNumber,
     required this.serviceDay,
+    required this.details,
     required this.address,
   });
 
@@ -43,6 +46,7 @@ class OrderServiceParams extends Equatable {
       userId,
       phoneNumber,
       serviceDay,
+      details,
       address,
     ];
   }
@@ -55,6 +59,7 @@ class OrderServiceParams extends Equatable {
       'phone_number': phoneNumber,
       'service_day': serviceDay,
       'address': address,
+      'details': details,
     });
   }
   OrderServiceParams copyWith({
@@ -64,6 +69,7 @@ class OrderServiceParams extends Equatable {
     String? phoneNumber,
     String? serviceDay,
     String? address,
+    String? details,
   }) {
     return OrderServiceParams(
       servicesId: servicesId ?? this.servicesId,
@@ -72,6 +78,7 @@ class OrderServiceParams extends Equatable {
       phoneNumber: phoneNumber ?? this.phoneNumber,
       serviceDay: serviceDay ?? this.serviceDay,
       address: address ?? this.address,
+      details: details ?? this.details,
     );
   }
 }

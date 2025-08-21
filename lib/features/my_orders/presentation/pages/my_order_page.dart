@@ -16,12 +16,13 @@ class MyOrdersPage extends StatefulWidget {
 }
 
 class _MyOrdersPageState extends State<MyOrdersPage> {
-    final MyOrdersBloc bloc=sl<MyOrdersBloc>();
+  final MyOrdersBloc bloc = sl<MyOrdersBloc>();
   @override
   void initState() {
-bloc.add(GetMyOrdersEvent());
+    bloc.add(GetMyOrdersEvent());
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     ColorProvider colorProvider = ColorProvider();
@@ -29,67 +30,79 @@ bloc.add(GetMyOrdersEvent());
     return BlocBuilder<MyOrdersBloc, MyOrdersState>(
       bloc: bloc,
       builder: (context, state) {
-    //      final sortedOrders = [...state.myOrders]
-    // ..sort((a, b) => a.serviceDay.compareTo(b.serviceDay));
+        //      final sortedOrders = [...state.myOrders]
+        // ..sort((a, b) => a.serviceDay.compareTo(b.serviceDay));
         return state.isLoading
             ? CircularProgressIndicator(
                 color: colorProvider.primary,
               ).centered()
-            :  Scaffold(
-          body: ListView.builder(
-            itemCount: state.myOrders.length,
-            itemBuilder: (context, index) {
-              final order = state.myOrders[index];
-              // final formattedDate = DateFormat('dd/ MM/ yyyy')
-              //     .format(DateTime.parse(order.serviceDay));
-              final createdAt = DateFormat('yyyy-MM-dd – kk:mm')
-                  .format(DateTime.parse(order.createAt));
-    
-              return Card(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.calendar_today,
-                              color: Colors.teal),
-                          const SizedBox(width: 8),
-                          Text(
-                            order.serviceDay,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+            : Scaffold(
+                body: state.myOrders.isEmpty
+                    ? Center(
+                        child: Text("لايوجد طلبات بعد"),
+                      )
+                    :
+                     ListView.builder(
+                        itemCount: state.myOrders.length,
+                        itemBuilder: (context, index) {
+                          final order = state.myOrders[index];
+                          // final formattedDate = DateFormat('dd/ MM/ yyyy')
+                          //     .format(DateTime.parse(order.serviceDay));
+                          final createdAt = DateFormat('yyyy-MM-dd – kk:mm')
+                              .format(DateTime.parse(order.createAt));
+
+                          return Card(
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 10),
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.calendar_today,
+                                          color: Colors.teal),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        order.serviceDay,
+                                        style: const TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  Divider(
+                                    height: 15,
+                                    thickness: 0.8,
+                                    color: colorProvider.greyBorder,
+                                  ),
+                                  buildInfoRow(
+                                      Icons.phone,
+                                      context.tr("phoneNumber"),
+                                      order.phoneNumber),
+                                  buildInfoRow(Icons.location_on,
+                                      context.tr("address"), order.address),
+                                  buildInfoRow(
+                                      Icons.person,
+                                      context.tr("user_name"),
+                                      order.userName.toString()),
+                                  buildInfoRow(
+                                      Icons.miscellaneous_services,
+                                      context.tr("service_name"),
+                                      order.serviceTitle.toString()),
+                                  buildInfoRow(Icons.access_time,
+                                      context.tr("created_at"), createdAt),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
-                      Divider(
-                        height: 15,
-                        thickness: 0.8,
-                        color: colorProvider.greyBorder,
-                      ),
-                      buildInfoRow(
-                          Icons.phone, context.tr("phoneNumber"), order.phoneNumber),
-                      buildInfoRow(
-                          Icons.location_on, context.tr("address"), order.address),
-                      buildInfoRow(
-                          Icons.person, context.tr("user_name"), order.userName.toString()),
-                      buildInfoRow(Icons.miscellaneous_services, context.tr("service_name"),
-                          order.serviceTitle.toString()),
-                      buildInfoRow(
-                          Icons.access_time, context.tr("created_at"), createdAt),
-                    ],
-                  ),
-                ),
               );
-            },
-          ),
-        );
       },
     );
   }

@@ -29,10 +29,11 @@ class ServiceDetailsBloc
     final result = await serviceDetailsUseCase(OrderServiceParams(
       name: event.params.name,
       phoneNumber: event.params.phoneNumber,
-      servicesId: [0,2,2,2,2],
+      servicesId: event.params.servicesId,
       userId: localStorage.userinformation.id,
       serviceDay: event.params.serviceDay,
       address: event.params.address,
+      details: event.params.details,
     ));
     result.fold((failure) {
       emit(state.copyWith(

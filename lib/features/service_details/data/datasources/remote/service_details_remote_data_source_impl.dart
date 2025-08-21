@@ -13,6 +13,15 @@ class ServiceDetailsRemoteDataSourceImpl
 
   @override
   Future<ApiResponse<void>> orderService(OrderServiceParams params) async {
-    return await _orderServiceServices.orderService(params.toMap());
+    return await _orderServiceServices.orderService(
+  {
+    "services":params.servicesId,
+    "phone_number":params.phoneNumber,
+    "service_day":params.serviceDay,
+    "address":params.address,
+   if(params.details.isNotEmpty) "details":params.details,
+  });
+      
+      // params.toMap());
   }
 }

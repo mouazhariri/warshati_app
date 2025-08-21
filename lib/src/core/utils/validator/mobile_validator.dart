@@ -5,11 +5,11 @@ import 'package:queen_validators/queen_validators.dart';
 String? Function(String?) mobileNumberValidation(BuildContext context) {
   return qValidator([
     IsRequired(context.tr('required')),
-    MaxLength(10, context.tr('mustBeTenDigits')),
-    MinLength(10, context.tr('mustBeTenDigits')),
-    RegExpRule(
-      RegExp(r'^([09])\d+'),
-      context.tr('phoneNumberValidator'),
-    ),
+    // MaxLength(10, context.tr('mustBeTenDigits')),
+    // MinLength(10, context.tr('mustBeTenDigits')),
+    // RegExpRule(
+    //   RegExp(r'^([09])\d+'),
+    //   context.tr('phoneNumberValidator'),
+    // ),
   ]);
 }

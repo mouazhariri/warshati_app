@@ -21,7 +21,8 @@ class DayDropdownWidget extends StatelessWidget {
     "thursday",
     "friday",
     "saturday",
-    "nearest_time"
+    "nearest_time",
+    "other"
   ];
   @override
   Widget build(BuildContext context) {

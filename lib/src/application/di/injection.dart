@@ -32,7 +32,11 @@ Future<void> configurationDependencies() async {
 
 Dio getDio() {
   Dio dio = Dio();
-  dio.interceptors.clear();
+  // dio.interceptors.clear();
+  dio.interceptors.add(PrettyDioLogger());
+
+  dio.interceptors.add(RemoteInterceptor(sl<LocalStorage>()));
+
   dio.interceptors.add(
     PrettyDioLogger(
       requestHeader: true,
@@ -41,10 +45,9 @@ Dio getDio() {
       responseHeader: false,
       error: true,
       compact: true,
-      maxWidth: 90,
+      maxWidth: 200,
     ),
   );
-  dio.interceptors.add(RemoteInterceptor(sl<LocalStorage>()));
 
   return dio;
 }

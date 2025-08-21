@@ -77,7 +77,7 @@ class AppThemes {
       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 5.sp),
     ),
     //card Theme
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: LightColorsManager().white,
       shadowColor: LightColorsManager().grey,
       elevation: 0,
@@ -275,7 +275,7 @@ class AppThemes {
     ),
 
     // Tab Bar Theme
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: LightColorsManager().primary,
       unselectedLabelColor: LightColorsManager().grey,
       indicatorColor: LightColorsManager().primary,
@@ -575,7 +575,7 @@ class AppThemes {
       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 5.sp),
     ),
     //card Theme
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: DarkColorsManager().darker,
       shadowColor: DarkColorsManager().grey,
       elevation: 0,
@@ -772,7 +772,7 @@ class AppThemes {
     ),
 
     // Tab Bar Theme
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: DarkColorsManager().primary,
       unselectedLabelColor: DarkColorsManager().grey,
       indicatorColor: DarkColorsManager().primary,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sham/features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import 'package:sham/features/home/domain/entities/services_entity.dart';
 import 'package:sham/features/main/presentation/page/main_screen.dart';
 import 'package:sham/features/service_details/presentation/screen/service_details_page.dart';
-import 'package:sham/features/sign_in/presentation/pages/sign_in_screen.dart';
+import 'package:sham/features/auth/sign_in/presentation/pages/sign_in_screen.dart';
 import 'package:sham/src/application/router/app_routes.dart';
 import 'package:sham/src/application/router/custom_navigation_observer.dart';
 import 'package:sham/src/application/router/fallback_screen.dart';
@@ -39,6 +40,13 @@ class AppRouter {
           },
         ),
         GoRoute(
+          path: AppRoutes.signUpScreen,
+          parentNavigatorKey: rootKey,
+          builder: (BuildContext context, GoRouterState state) {
+            return SignUpScreen();
+          },
+        ),
+        GoRoute(
           path: AppRoutes.homeScreen,
           parentNavigatorKey: rootKey,
           builder: (BuildContext context, GoRouterState state) {
@@ -46,7 +54,7 @@ class AppRouter {
           },
         ),
         GoRoute(
-          path: '${AppRoutes.serviceDetails}',
+          path: AppRoutes.serviceDetails,
           name: AppRoutes.serviceDetails,
           // parentNavigatorKey: rootKey,
           

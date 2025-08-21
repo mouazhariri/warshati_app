@@ -23,6 +23,7 @@ class ServiceDetailsState extends Equatable with BaseState {
           name: "",
           phoneNumber: "",
           serviceDay: "",
+          details: "",
           servicesId: [],
           userId: -1,
           address: ""),

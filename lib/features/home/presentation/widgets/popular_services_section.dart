@@ -67,6 +67,7 @@ class _PopularServicesSectionState extends State<PopularServicesSection> {
                               final service = state.servicesList[index];
                               return GestureDetector(
                                 onTap: () {
+                                  
                                   context.pushNamed(
                                     AppRoutes.serviceDetails,
                                     extra: service,

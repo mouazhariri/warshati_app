@@ -6,7 +6,8 @@ class AppImages {
   static String emptyScreen = 'im_empty_screen.png'.asAssetsImage;
   static String errorScreen = 'im_error_screen.png'.asAssetsImage;
   static String logo = 'sham_logo3.png'.asAssetsImage;
-  static String shamImage = 'sham.png'.asAssetsImage;
+  static String shamImage = 'sham_logo.png'.asAssetsImage;
+  static String waarshatiImage = 'warshati.png'.asAssetsImage;
 }
 
 class AppIcons {

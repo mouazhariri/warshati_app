@@ -9,6 +9,7 @@ import 'package:sham/features/main/presentation/widgets/custom_drawer.dart';
 import 'package:sham/features/my_orders/presentation/pages/my_order_page.dart';
 import 'package:sham/features/profile/presentation/pages/profile_page.dart';
 import 'package:sham/src/application/di/injection.dart';
+import 'package:sham/src/application/router/app_router.dart';
 import 'package:sham/src/application/router/app_routes.dart';
 import 'package:sham/src/core/utils/extenssion/assets_extension.dart';
 import 'package:sham/src/infrastructure/storage/local_storage.dart';
@@ -55,7 +56,8 @@ class _MainScreenState extends State<MainScreen> {
       bloc: bloc,
       listener: (context, state) {
         if (state.logOut) {
-          context.pushReplacement(AppRoutes.signInScreen);
+          context.go(AppRoutes.signInScreen);
+          // context.pushReplacement(AppRoutes.signInScreen);
           // Navigator.of(context).pushNamedAndRemoveUntil(
           //     AppRoutes.signInScreen, (Route<dynamic> route) => false);
         }

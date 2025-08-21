@@ -29,10 +29,13 @@ abstract class  LocaleKeys {
   static const thursday = 'thursday';
   static const friday = 'friday';
   static const saturday = 'saturday';
-  static const change_language = 'change_language';
   static const nearest_time = 'nearest_time';
+  static const srvice_was_ordered_successfully = 'srvice_was_ordered_successfully';
   static const submit_order = 'submit_order';
+  static const logout_confirmation = 'logout_confirmation';
+  static const change_language = 'change_language';
   static const required = 'required';
+  static const cancel = 'cancel';
   static const invalid_phone = 'invalid_phone';
   static const invalid_address = 'invalid_address';
   static const service_description = 'service_description';
@@ -41,15 +44,26 @@ abstract class  LocaleKeys {
   static const mustBeTenDigits = 'mustBeTenDigits';
   static const our_services = 'our_services';
   static const welcome = 'welcome';
+  static const hi_welcome_to_sham_again = 'hi_welcome_to_sham_again';
   static const hi_welcome_to_sham = 'hi_welcome_to_sham';
-  static const we_happy_to_see_you = 'we_happy_to_see_you';
+  static const we_happy_to_see_you_signIn = 'we_happy_to_see_you_signIn';
+  static const we_happy_to_see_you_signUp = 'we_happy_to_see_you_signUp';
+  static const dont_have_account = 'dont_have_account';
+  static const already_have_account = 'already_have_account';
+  static const create_here = 'create_here';
+  static const login = 'login';
+  static const create_account = 'create_account';
+  static const user_name_note = 'user_name_note';
   static const order_success = 'order_success';
   static const processing_data = 'processing_data';
   static const preferred_day = 'preferred_day';
   static const date = 'date';
+  static const details = 'details';
   static const logOut = 'logOut';
   static const name = 'name';
   static const phoneNumber = 'phoneNumber';
+  static const service_name = 'service_name';
+  static const created_a = 'created_a';
   static const please_select_a_day = 'please_select_a_day';
 
 }
