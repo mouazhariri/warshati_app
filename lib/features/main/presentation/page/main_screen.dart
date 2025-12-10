@@ -45,7 +45,11 @@ class _MainScreenState extends State<MainScreen> {
   //     _selectedIndex = index;
   //   });
   // }
-
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final MainBloc bloc = sl<MainBloc>();

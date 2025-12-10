@@ -60,6 +60,6 @@
     "name": "Name :",
     "phoneNumber": "Phone number :",
     "service_name": "Service name :",
-    "created_a": "Created at :",
+    "created_at": "Created at :",
     "please_select_a_day": "Please select a day"
 }

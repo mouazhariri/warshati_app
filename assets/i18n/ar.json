@@ -60,6 +60,6 @@
   "name": "الاسم :",
   "phoneNumber": "رقم الهاتف :",
   "service_name": "اسم الخدمة :",
-  "created_a": "انشأت في :",
+  "created_at": "انشأت في :",
   "please_select_a_day": "يرجى اختيار يوم"
 }

@@ -26,7 +26,7 @@ class SignUpRepositoryImp implements SignUpRepository {
           return Right(response.data!);
         }
       } else {
-        return Left(AuthenticationFailure(response.error.toString()));
+        return Left(ServerFailure(response.error??"Something went wrong, Try again later"));
       }
     } on ServerException catch (error) {
       return Left(ServerFailure(error.errorMessageModel.message));
